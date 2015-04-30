@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "url": "https://w3c.github.io/webdriver/webdriver-spec.html",
+    "version": "0.0.0",
+    "date": "2015-04-30T22:28:44.891Z"
+  },
+  "data": {
+    "element not selectable": {
+      "httpStatus": "400",
+      "jsonStatus": "element not selectable",
+      "description": "An attempt was made to select an element that cannot be selected."
+    },
+    "element not visible": {
+      "httpStatus": "400",
+      "jsonStatus": "element not visible",
+      "description": "An element command could not be completed because the element is not visible on the page."
+    },
+    "invalid argument": {
+      "httpStatus": "400",
+      "jsonStatus": "invalid argument",
+      "description": "The arguments passed to a command are either invalid or malformed."
+    },
+    "invalid cookie domain": {
+      "httpStatus": "400",
+      "jsonStatus": "invalid cookie domain",
+      "description": "An illegal attempt was made to set a cookie under a different domain than the current page."
+    },
+    "invalid element coordinates": {
+      "httpStatus": "400",
+      "jsonStatus": "invalid element coordinates",
+      "description": "The coordinates provided to an interactions operation are invalid."
+    },
+    "invalid element state": {
+      "httpStatus": "400",
+      "jsonStatus": "invalid element state",
+      "description": "An element command could not be completed because the element is in an invalid state (e.g. attempting to click an element that is no longer attached to the Document)."
+    },
+    "invalid selector": {
+      "httpStatus": "400",
+      "jsonStatus": "invalid selector",
+      "description": "Argument was an invalid selector."
+    },
+    "invalid session id": {
+      "httpStatus": "404",
+      "jsonStatus": "invalid session id",
+      "description": "The session with the session ID does not exist. This could be either from the session being quit or the session ID passed in is not currently active."
+    },
+    "javascript error": {
+      "httpStatus": "500",
+      "jsonStatus": "javascript error",
+      "description": "An error occurred while executing JavaScript supplied by the user."
+    },
+    "move target out of bounds": {
+      "httpStatus": "500",
+      "jsonStatus": "move target out of bounds",
+      "description": "The target for mouse interaction is not in the browser's viewport and cannot be brought into that viewport."
+    },
+    "no such alert": {
+      "httpStatus": "400",
+      "jsonStatus": "no such alert",
+      "description": "An attempt was made to operate on a modal dialog when one was not open."
+    },
+    "no such element": {
+      "httpStatus": "404",
+      "jsonStatus": "no such element",
+      "description": "An element could not be located on the page using the given search parameters."
+    },
+    "no such frame": {
+      "httpStatus": "400",
+      "jsonStatus": "no such frame",
+      "description": "A request to switch to a frame could not be satisfied because the frame could not be found."
+    },
+    "no such window": {
+      "httpStatus": "400",
+      "jsonStatus": "no such window",
+      "description": "A request to switch to a different window could not be satisfied because the window could not be found."
+    },
+    "script timeout": {
+      "httpStatus": "408",
+      "jsonStatus": "script timeout",
+      "description": "A script did not complete before its timeout expired."
+    },
+    "session not created": {
+      "httpStatus": "500",
+      "jsonStatus": "session not created",
+      "description": "A new session could not be created."
+    },
+    "stale element reference": {
+      "httpStatus": "400",
+      "jsonStatus": "stale element reference",
+      "description": "An element command failed because the referenced element is no longer attached to the Document."
+    },
+    "timeout": {
+      "httpStatus": "408",
+      "jsonStatus": "timeout",
+      "description": "An operation did not complete before its timeout expired."
+    },
+    "unable to set cookie": {
+      "httpStatus": "500",
+      "jsonStatus": "unable to set cookie",
+      "description": "A request to set a cookie's value could not be satisfied."
+    },
+    "unexpected alert open": {
+      "httpStatus": "500",
+      "jsonStatus": "unexpected alert open",
+      "description": "A modal dialog was open, blocking this operation."
+    },
+    "unknown command": {
+      "httpStatus": "404",
+      "jsonStatus": "unknown command",
+      "description": "A command could not be executed because the remote end is not aware of it."
+    },
+    "unknown error": {
+      "httpStatus": "500",
+      "jsonStatus": "unknown error",
+      "description": "An unknown error occurred in the remote end while processing the command."
+    },
+    "unknown method": {
+      "httpStatus": "405",
+      "jsonStatus": "unknown method",
+      "description": "The requested command matched a known URL but did not match an method for that URL."
+    },
+    "unsupported operation": {
+      "httpStatus": "500",
+      "jsonStatus": "unsupported operation",
+      "description": "Indicates that a command that should have executed properly cannot be supported for some reason."
+    }
+  }
+}

@@ -1,0 +1,3385 @@
+{
+  "meta": {
+    "url": "https://github.com/admc/wd/blob/master/doc/jsonwire-full-mapping.md",
+    "version": "0.3.11",
+    "date": "2015-04-30T19:44:53.539Z"
+  },
+  "data": {
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/status": {
+      "jsonWire": {
+        "key": "GET /status",
+        "method": "GET",
+        "path": "/status",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/status",
+        "desc": "Query the server's current status."
+      },
+      "methods": [
+        {
+          "name": "status",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "status"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session": {
+      "jsonWire": {
+        "key": "POST /session",
+        "method": "POST",
+        "path": "/session",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session",
+        "desc": "Create a new session."
+      },
+      "methods": [
+        {
+          "name": "init",
+          "args": [
+            "desired",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "sessionID",
+            "capabilities"
+          ]
+        },
+        "Initialize the browser. capabilities return may be"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/sessions": {
+      "jsonWire": {
+        "key": "GET /sessions",
+        "method": "GET",
+        "path": "/sessions",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/sessions",
+        "desc": "Returns a list of the currently active sessions."
+      },
+      "methods": [
+        {
+          "name": "sessions",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "sessions"
+          ]
+        },
+        "Alternate strategy to get session capabilities from server session list:",
+        {
+          "name": "altSessionCapabilities",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "capabilities"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId",
+        "method": "GET",
+        "path": "/session/:sessionId",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId",
+        "desc": "Retrieve the capabilities of the specified session."
+      },
+      "methods": [
+        {
+          "name": "sessionCapabilities",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "capabilities"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId": {
+      "jsonWire": {
+        "key": "DELETE /session/:sessionId",
+        "method": "DELETE",
+        "path": "/session/:sessionId",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId",
+        "desc": "Delete the session."
+      },
+      "methods": [
+        {
+          "name": "quit",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "Destroy the browser."
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/timeouts": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/timeouts",
+        "method": "POST",
+        "path": "/session/:sessionId/timeouts",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/timeouts",
+        "desc": "Configure the amount of time that a particular type of operation can execute for before they are aborted and a |Timeout| error is returned to the client."
+      },
+      "methods": [
+        {
+          "name": "setPageLoadTimeout",
+          "args": [
+            "ms",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "(use setImplicitWaitTimeout and setAsyncScriptTimeout to set the other timeouts)",
+        {
+          "name": "setCommandTimeout",
+          "args": [
+            "ms",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "(this is for Appium only)"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/timeouts/async_script": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/timeouts/async_script",
+        "method": "POST",
+        "path": "/session/:sessionId/timeouts/async_script",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/timeouts/async_script",
+        "desc": "Set the amount of time, in milliseconds, that asynchronous scripts executed by /session/:sessionId/execute_async are permitted to run before they are aborted and a |Timeout| error is returned to the client."
+      },
+      "methods": [
+        {
+          "name": "setAsyncScriptTimeout",
+          "args": [
+            "ms",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/timeouts/implicit_wait": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/timeouts/implicit_wait",
+        "method": "POST",
+        "path": "/session/:sessionId/timeouts/implicit_wait",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/timeouts/implicit_wait",
+        "desc": "Set the amount of time the driver should wait when searching for elements."
+      },
+      "methods": [
+        {
+          "name": "setImplicitWaitTimeout",
+          "args": [
+            "ms",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/window_handle": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/window_handle",
+        "method": "GET",
+        "path": "/session/:sessionId/window_handle",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/window_handle",
+        "desc": "Retrieve the current window handle."
+      },
+      "methods": [
+        {
+          "name": "windowHandle",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "handle"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/window_handles": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/window_handles",
+        "method": "GET",
+        "path": "/session/:sessionId/window_handles",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/window_handles",
+        "desc": "Retrieve the list of all window handles available to the session."
+      },
+      "methods": [
+        {
+          "name": "windowHandles",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "arrayOfHandles"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/url": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/url",
+        "method": "GET",
+        "path": "/session/:sessionId/url",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/url",
+        "desc": "Retrieve the URL of the current page."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/url": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/url",
+        "method": "POST",
+        "path": "/session/:sessionId/url",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/url",
+        "desc": "Navigate to a new URL."
+      },
+      "methods": [
+        {
+          "name": "get",
+          "args": [
+            "url",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "Get a new url."
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/forward": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/forward",
+        "method": "POST",
+        "path": "/session/:sessionId/forward",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/forward",
+        "desc": "Navigate forwards in the browser history, if possible."
+      },
+      "methods": [
+        {
+          "name": "forward",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/back": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/back",
+        "method": "POST",
+        "path": "/session/:sessionId/back",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/back",
+        "desc": "Navigate backwards in the browser history, if possible."
+      },
+      "methods": [
+        {
+          "name": "back",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/refresh": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/refresh",
+        "method": "POST",
+        "path": "/session/:sessionId/refresh",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/refresh",
+        "desc": "Refresh the current page."
+      },
+      "methods": [
+        {
+          "name": "refresh",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/execute": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/execute",
+        "method": "POST",
+        "path": "/session/:sessionId/execute",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/execute",
+        "desc": "Inject a snippet of JavaScript into the page for execution in the context of the currently selected frame."
+      },
+      "methods": [
+        {
+          "name": "execute",
+          "args": [
+            "code",
+            "args",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "result"
+          ]
+        },
+        {
+          "name": "execute",
+          "args": [
+            "code",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "result"
+          ]
+        },
+        "args: script argument array (optional)",
+        {
+          "name": "safeExecute",
+          "args": [
+            "code",
+            "args",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "result"
+          ]
+        },
+        {
+          "name": "safeExecute",
+          "args": [
+            "code",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "result"
+          ]
+        },
+        "args: script argument array (optional)",
+        {
+          "name": "eval",
+          "args": [
+            "code",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "value"
+          ]
+        },
+        "Safely evaluate expression, always returning  (using safeExecute):",
+        {
+          "name": "safeEval",
+          "args": [
+            "code",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "value"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/execute_async": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/execute_async",
+        "method": "POST",
+        "path": "/session/:sessionId/execute_async",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/execute_async",
+        "desc": "Inject a snippet of JavaScript into the page for execution in the context of the currently selected frame."
+      },
+      "methods": [
+        {
+          "name": "executeAsync",
+          "args": [
+            "code",
+            "args",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "result"
+          ]
+        },
+        {
+          "name": "executeAsync",
+          "args": [
+            "code",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "result"
+          ]
+        },
+        "args: script argument array (optional)",
+        {
+          "name": "safeExecuteAsync",
+          "args": [
+            "code",
+            "args",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "result"
+          ]
+        },
+        {
+          "name": "safeExecuteAsync",
+          "args": [
+            "code",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "result"
+          ]
+        },
+        "args: script argument array (optional)"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/screenshot": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/screenshot",
+        "method": "GET",
+        "path": "/session/:sessionId/screenshot",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/screenshot",
+        "desc": "Take a screenshot of the current page."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/ime/available_engines": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/ime/available_engines",
+        "method": "GET",
+        "path": "/session/:sessionId/ime/available_engines",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/ime/available_engines",
+        "desc": "List all available engines on the machine."
+      },
+      "methods": [
+        {
+          "name": "availableIMEEngines",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "engines"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/ime/active_engine": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/ime/active_engine",
+        "method": "GET",
+        "path": "/session/:sessionId/ime/active_engine",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/ime/active_engine",
+        "desc": "Get the name of the active IME engine."
+      },
+      "methods": [
+        {
+          "name": "activeIMEEngine",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "activeEngine"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/ime/activated": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/ime/activated",
+        "method": "GET",
+        "path": "/session/:sessionId/ime/activated",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/ime/activated",
+        "desc": "Indicates whether IME input is active at the moment (not if it's available)."
+      },
+      "methods": [
+        {
+          "name": "activatedIMEEngine",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "active"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/ime/deactivate": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/ime/deactivate",
+        "method": "POST",
+        "path": "/session/:sessionId/ime/deactivate",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/ime/deactivate",
+        "desc": "De-activates the currently-active IME engine."
+      },
+      "methods": [
+        {
+          "name": "deactivateIMEEngine",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/ime/activate": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/ime/activate",
+        "method": "POST",
+        "path": "/session/:sessionId/ime/activate",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/ime/activate",
+        "desc": "Make an engines that is available (appears on the listreturned by getAvailableEngines) active."
+      },
+      "methods": [
+        {
+          "name": "activateIMEEngine",
+          "args": [
+            "cb",
+            "engine"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/frame": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/frame",
+        "method": "POST",
+        "path": "/session/:sessionId/frame",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/frame",
+        "desc": "Change focus to another frame on the page."
+      },
+      "methods": [
+        {
+          "name": "frame",
+          "args": [
+            "frameRef",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/window": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/window",
+        "method": "POST",
+        "path": "/session/:sessionId/window",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/window",
+        "desc": "Change focus to another window."
+      },
+      "methods": [
+        {
+          "name": "window",
+          "args": [
+            "name",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/window": {
+      "jsonWire": {
+        "key": "DELETE /session/:sessionId/window",
+        "method": "DELETE",
+        "path": "/session/:sessionId/window",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/window",
+        "desc": "Close the current window."
+      },
+      "methods": [
+        {
+          "name": "close",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/window/:windowHandle/size": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/window/:windowHandle/size",
+        "method": "POST",
+        "path": "/session/:sessionId/window/:windowHandle/size",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/window/:windowHandle/size",
+        "desc": "Change the size of the specified window."
+      },
+      "methods": [
+        {
+          "name": "windowSize",
+          "args": [
+            "handle",
+            "width",
+            "height",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "setWindowSize",
+          "args": [
+            "width",
+            "height",
+            "handle",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "setWindowSize",
+          "args": [
+            "width",
+            "height",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "width: width in pixels to set size to"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/window/:windowHandle/size": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/window/:windowHandle/size",
+        "method": "GET",
+        "path": "/session/:sessionId/window/:windowHandle/size",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/window/:windowHandle/size",
+        "desc": "Get the size of the specified window."
+      },
+      "methods": [
+        {
+          "name": "getWindowSize",
+          "args": [
+            "handle",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "size"
+          ]
+        },
+        {
+          "name": "getWindowSize",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "size"
+          ]
+        },
+        "handle: window handle to get size (optional, default: 'current')"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/window/:windowHandle/position": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/window/:windowHandle/position",
+        "method": "POST",
+        "path": "/session/:sessionId/window/:windowHandle/position",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/window/:windowHandle/position",
+        "desc": "Change the position of the specified window."
+      },
+      "methods": [
+        {
+          "name": "setWindowPosition",
+          "args": [
+            "x",
+            "y",
+            "handle",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "setWindowPosition",
+          "args": [
+            "x",
+            "y",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "x: the x-coordinate in pixels to set the window position"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/window/:windowHandle/position": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/window/:windowHandle/position",
+        "method": "GET",
+        "path": "/session/:sessionId/window/:windowHandle/position",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/window/:windowHandle/position",
+        "desc": "Get the position of the specified window."
+      },
+      "methods": [
+        {
+          "name": "getWindowPosition",
+          "args": [
+            "handle",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "position"
+          ]
+        },
+        {
+          "name": "getWindowPosition",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "position"
+          ]
+        },
+        "handle: window handle to get position (optional, default: 'current')"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/window/:windowHandle/maximize": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/window/:windowHandle/maximize",
+        "method": "POST",
+        "path": "/session/:sessionId/window/:windowHandle/maximize",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/window/:windowHandle/maximize",
+        "desc": "Maximize the specified window if not already maximized."
+      },
+      "methods": [
+        {
+          "name": "maximize",
+          "args": [
+            "handle",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/cookie": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/cookie",
+        "method": "GET",
+        "path": "/session/:sessionId/cookie",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/cookie",
+        "desc": "Retrieve all cookies visible to the current page."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/cookie": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/cookie",
+        "method": "POST",
+        "path": "/session/:sessionId/cookie",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/cookie",
+        "desc": "Set a cookie."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/cookie": {
+      "jsonWire": {
+        "key": "DELETE /session/:sessionId/cookie",
+        "method": "DELETE",
+        "path": "/session/:sessionId/cookie",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/cookie",
+        "desc": "Delete all cookies visible to the current page."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/cookie/:name": {
+      "jsonWire": {
+        "key": "DELETE /session/:sessionId/cookie/:name",
+        "method": "DELETE",
+        "path": "/session/:sessionId/cookie/:name",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/cookie/:name",
+        "desc": "Delete the cookie with the given name."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/source": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/source",
+        "method": "GET",
+        "path": "/session/:sessionId/source",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/source",
+        "desc": "Get the current page source."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/title": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/title",
+        "method": "GET",
+        "path": "/session/:sessionId/title",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/title",
+        "desc": "Get the current page title."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/element",
+        "method": "POST",
+        "path": "/session/:sessionId/element",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element",
+        "desc": "Search for an element on the page, starting from the document root."
+      },
+      "methods": [
+        {
+          "name": "element",
+          "args": [
+            "using",
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/elements": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/elements",
+        "method": "POST",
+        "path": "/session/:sessionId/elements",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/elements",
+        "desc": "Search for multiple elements on the page, starting from the document root."
+      },
+      "methods": [
+        {
+          "name": "elements",
+          "args": [
+            "using",
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        "Retrieve an element avoiding not found exception and returning null instead:",
+        {
+          "name": "elementOrNull",
+          "args": [
+            "using",
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        "Retrieve an element avoiding not found exception and returning undefined instead:",
+        {
+          "name": "elementIfExists",
+          "args": [
+            "using",
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        "Check if element exists:",
+        {
+          "name": "hasElement",
+          "args": [
+            "using",
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "boolean"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/active": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/element/active",
+        "method": "POST",
+        "path": "/session/:sessionId/element/active",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/active",
+        "desc": "Get the element on the page that currently has focus."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id",
+        "desc": "Describe the identified element."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/element": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/element/:id/element",
+        "method": "POST",
+        "path": "/session/:sessionId/element/:id/element",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/element",
+        "desc": "Search for an element on the page, starting from the identified element."
+      },
+      "methods": [
+        {
+          "name": "element.element",
+          "args": [
+            "using",
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByClassName",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByCssSelector",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementById",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByName",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByLinkText",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByPartialLinkText",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByTagName",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByXPath",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByCss",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByIosUIAutomation",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByAndroidUIAutomator",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        },
+        {
+          "name": "element.elementByAccessibilityId",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "element"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/elements": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/element/:id/elements",
+        "method": "POST",
+        "path": "/session/:sessionId/element/:id/elements",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/elements",
+        "desc": "Search for multiple elements on the page, starting from the identified element."
+      },
+      "methods": [
+        {
+          "name": "element.elements",
+          "args": [
+            "using",
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByClassName",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByCssSelector",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsById",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByName",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByLinkText",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByPartialLinkText",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByTagName",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByXPath",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByCss",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByIosUIAUtomation",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByAndroidUIAutomator",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        },
+        {
+          "name": "element.elementsByAccessibilityId",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "elements"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/click": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/element/:id/click",
+        "method": "POST",
+        "path": "/session/:sessionId/element/:id/click",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/click",
+        "desc": "Click on an element."
+      },
+      "methods": [
+        {
+          "name": "element.click",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/submit": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/element/:id/submit",
+        "method": "POST",
+        "path": "/session/:sessionId/element/:id/submit",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/submit",
+        "desc": "Submit a FORM element."
+      },
+      "methods": [
+        {
+          "name": "element.submit",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/text": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/text",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/text",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/text",
+        "desc": "Returns the visible text for the element."
+      },
+      "methods": [
+        {
+          "name": "element.text",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "text"
+          ]
+        },
+        {
+          "name": "element.textPresent",
+          "args": [
+            "searchText",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "boolean"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/value": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/element/:id/value",
+        "method": "POST",
+        "path": "/session/:sessionId/element/:id/value",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/value",
+        "desc": "Send a sequence of key strokes to an element."
+      },
+      "methods": [
+        {
+          "name": "element.type",
+          "args": [
+            "keys",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "element.keys",
+          "args": [
+            "keys",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/keys": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/keys",
+        "method": "POST",
+        "path": "/session/:sessionId/keys",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/keys",
+        "desc": "Send a sequence of key strokes to the active element."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/name": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/name",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/name",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/name",
+        "desc": "Query for an element's tag name."
+      },
+      "methods": [
+        {
+          "name": "element.getTagName",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "name"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/clear": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/element/:id/clear",
+        "method": "POST",
+        "path": "/session/:sessionId/element/:id/clear",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/element/:id/clear",
+        "desc": "Clear a TEXTAREA or text INPUT element's value."
+      },
+      "methods": [
+        {
+          "name": "element.clear",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/selected": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/selected",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/selected",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/selected",
+        "desc": "Determine if an OPTION element, or an INPUT element of type checkbox or radiobutton is currently selected."
+      },
+      "methods": [
+        {
+          "name": "element.isSelected",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "selected"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/enabled": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/enabled",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/enabled",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/enabled",
+        "desc": "Determine if an element is currently enabled."
+      },
+      "methods": [
+        {
+          "name": "element.isEnabled",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "enabled"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/attribute/:name": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/attribute/:name",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/attribute/:name",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/attribute/:name",
+        "desc": "Get the value of an element's attribute."
+      },
+      "methods": [
+        {
+          "name": "element.getAttribute",
+          "args": [
+            "attrName",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "value"
+          ]
+        },
+        {
+          "name": "element.getValue",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "value"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/equals/:other": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/equals/:other",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/equals/:other",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/equals/:other",
+        "desc": "Test if two element IDs refer to the same DOM element."
+      },
+      "methods": [
+        {
+          "name": "element.equals",
+          "args": [
+            "other",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "value"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/displayed": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/displayed",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/displayed",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/displayed",
+        "desc": "Determine if an element is currently displayed."
+      },
+      "methods": [
+        {
+          "name": "element.isDisplayed",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "displayed"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/location": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/location",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/location",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/location",
+        "desc": "Determine an element's location on the page."
+      },
+      "methods": [
+        {
+          "name": "element.getLocation",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "location"
+          ]
+        },
+        {
+          "name": "element.getLocationInView",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "location"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/location_in_view": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/location_in_view",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/location_in_view",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/location_in_view",
+        "desc": "Determine an element's location on the screen once it has been scrolled into view."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/size": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/size",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/size",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/size",
+        "desc": "Determine an element's size in pixels."
+      },
+      "methods": [
+        {
+          "name": "element.getSize",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "size"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/css/:propertyName": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/element/:id/css/:propertyName",
+        "method": "GET",
+        "path": "/session/:sessionId/element/:id/css/:propertyName",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/element/:id/css/:propertyName",
+        "desc": "Query the value of an element's computed CSS property."
+      },
+      "methods": [
+        {
+          "name": "element.getComputedCss",
+          "args": [
+            "cssProperty",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "value"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/orientation": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/orientation",
+        "method": "GET",
+        "path": "/session/:sessionId/orientation",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/orientation",
+        "desc": "Get the current browser orientation."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/orientation": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/orientation",
+        "method": "POST",
+        "path": "/session/:sessionId/orientation",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/orientation",
+        "desc": "Set the browser orientation."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/alert_text": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/alert_text",
+        "method": "GET",
+        "path": "/session/:sessionId/alert_text",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/alert_text",
+        "desc": "Gets the text of the currently displayed JavaScript alert(), confirm(), or prompt() dialog."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/alert_text": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/alert_text",
+        "method": "POST",
+        "path": "/session/:sessionId/alert_text",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/alert_text",
+        "desc": "Sends keystrokes to a JavaScript prompt() dialog."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/accept_alert": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/accept_alert",
+        "method": "POST",
+        "path": "/session/:sessionId/accept_alert",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/accept_alert",
+        "desc": "Accepts the currently displayed alert dialog."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/dismiss_alert": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/dismiss_alert",
+        "method": "POST",
+        "path": "/session/:sessionId/dismiss_alert",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/dismiss_alert",
+        "desc": "Dismisses the currently displayed alert dialog."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/moveto": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/moveto",
+        "method": "POST",
+        "path": "/session/:sessionId/moveto",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/moveto",
+        "desc": "Move the mouse by an offset of the specificed element."
+      },
+      "methods": [
+        {
+          "name": "element.moveTo",
+          "args": [
+            "xoffset",
+            "yoffset",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "xoffset and y offset are optional."
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/click": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/click",
+        "method": "POST",
+        "path": "/session/:sessionId/click",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/click",
+        "desc": "Click any mouse button (at the coordinates set by the last moveto command)."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/buttondown": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/buttondown",
+        "method": "POST",
+        "path": "/session/:sessionId/buttondown",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/buttondown",
+        "desc": "Click and hold the left mouse button (at the coordinates set by the last moveto command)."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/buttonup": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/buttonup",
+        "method": "POST",
+        "path": "/session/:sessionId/buttonup",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/buttonup",
+        "desc": "Releases the mouse button previously held (where the mouse is currently at)."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/doubleclick": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/doubleclick",
+        "method": "POST",
+        "path": "/session/:sessionId/doubleclick",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/doubleclick",
+        "desc": "Double-clicks at the current mouse coordinates (set by moveto)."
+      },
+      "methods": [
+        {
+          "name": "element.doubleClick",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/click": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/click",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/click",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/click",
+        "desc": "Single tap on the touch enabled device."
+      },
+      "methods": [
+        {
+          "name": "element.tap",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/down": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/down",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/down",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/down",
+        "desc": "Finger down on the screen."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/up": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/up",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/up",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/up",
+        "desc": "Finger up on the screen."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/move": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/move",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/move",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/move",
+        "desc": "Finger move on the screen."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/scroll": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/scroll",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/scroll",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/scroll",
+        "desc": "Scroll on the touch screen using finger based motion events."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/doubleclick": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/doubleclick",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/doubleclick",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/doubleclick",
+        "desc": "Double tap on the touch screen using finger motion events."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/longclick": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/longclick",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/longclick",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/longclick",
+        "desc": "Long press on the touch screen using finger motion events."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/flick": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/flick",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/flick",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/flick",
+        "desc": "Flick on the touch screen using finger motion events."
+      },
+      "methods": [
+        {
+          "name": "element.flick",
+          "args": [
+            "xoffset",
+            "yoffset",
+            "speed",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/location": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/location",
+        "method": "GET",
+        "path": "/session/:sessionId/location",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/location",
+        "desc": "Get the current geo location."
+      },
+      "methods": [
+        {
+          "name": "getGeoLocation",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "geoLocationObj"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/location": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/location",
+        "method": "POST",
+        "path": "/session/:sessionId/location",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/location",
+        "desc": "Set the current geo location."
+      },
+      "methods": [
+        {
+          "name": "setGeoLocation",
+          "args": [
+            "lat",
+            "lon",
+            "alt",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/local_storage": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/local_storage",
+        "method": "GET",
+        "path": "/session/:sessionId/local_storage",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/local_storage",
+        "desc": "Get all keys of the storage."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/local_storage": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/local_storage",
+        "method": "POST",
+        "path": "/session/:sessionId/local_storage",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/local_storage",
+        "desc": "Set the storage item for the given key."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/local_storage": {
+      "jsonWire": {
+        "key": "DELETE /session/:sessionId/local_storage",
+        "method": "DELETE",
+        "path": "/session/:sessionId/local_storage",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/local_storage",
+        "desc": "Clear the storage."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/local_storage/key/:key": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/local_storage/key/:key",
+        "method": "GET",
+        "path": "/session/:sessionId/local_storage/key/:key",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/local_storage/key/:key",
+        "desc": "Get the storage item for the given key."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/local_storage/key/:key": {
+      "jsonWire": {
+        "key": "DELETE /session/:sessionId/local_storage/key/:key",
+        "method": "DELETE",
+        "path": "/session/:sessionId/local_storage/key/:key",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/local_storage/key/:key",
+        "desc": "Remove the storage item for the given key."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/local_storage/size": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/local_storage/size",
+        "method": "GET",
+        "path": "/session/:sessionId/local_storage/size",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/local_storage/size",
+        "desc": "Get the number of items in the storage."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/session_storage": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/session_storage",
+        "method": "GET",
+        "path": "/session/:sessionId/session_storage",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/session_storage",
+        "desc": "Get all keys of the storage."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/session_storage": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/session_storage",
+        "method": "POST",
+        "path": "/session/:sessionId/session_storage",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/session_storage",
+        "desc": "Set the storage item for the given key."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/session_storage": {
+      "jsonWire": {
+        "key": "DELETE /session/:sessionId/session_storage",
+        "method": "DELETE",
+        "path": "/session/:sessionId/session_storage",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/session_storage",
+        "desc": "Clear the storage."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/session_storage/key/:key": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/session_storage/key/:key",
+        "method": "GET",
+        "path": "/session/:sessionId/session_storage/key/:key",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/session_storage/key/:key",
+        "desc": "Get the storage item for the given key."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/session_storage/key/:key": {
+      "jsonWire": {
+        "key": "DELETE /session/:sessionId/session_storage/key/:key",
+        "method": "DELETE",
+        "path": "/session/:sessionId/session_storage/key/:key",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#DELETE_/session/:sessionId/session_storage/key/:key",
+        "desc": "Remove the storage item for the given key."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/session_storage/size": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/session_storage/size",
+        "method": "GET",
+        "path": "/session/:sessionId/session_storage/size",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/session_storage/size",
+        "desc": "Get the number of items in the storage."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/log": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/log",
+        "method": "POST",
+        "path": "/session/:sessionId/log",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/log",
+        "desc": "Get the log for a given log type."
+      },
+      "methods": [
+        {
+          "name": "scroll",
+          "args": [
+            "xOffset",
+            "yOffset",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "log",
+          "args": [
+            "logType",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "arrayOfLogs"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/log/types": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/log/types",
+        "method": "GET",
+        "path": "/session/:sessionId/log/types",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/log/types",
+        "desc": "Get available log types."
+      },
+      "methods": [
+        {
+          "name": "logTypes",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "arrayOfLogTypes"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/application_cache/status": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/application_cache/status",
+        "method": "GET",
+        "path": "/session/:sessionId/application_cache/status",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/application_cache/status",
+        "desc": "Get the status of the html5 application cache."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/context": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/context",
+        "method": "GET",
+        "path": "/session/:sessionId/context",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/context",
+        "desc": "Get the current context (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "currentContext",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/context": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/context",
+        "method": "POST",
+        "path": "/session/:sessionId/context",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/context",
+        "desc": "Set the current context (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "context",
+          "args": [
+            "contextRef",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "context"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/contexts": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/contexts",
+        "method": "GET",
+        "path": "/session/:sessionId/contexts",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/contexts",
+        "desc": "Get a list of the available contexts (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "contexts",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "handle"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/perform": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/perform",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/perform",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/perform",
+        "desc": "Perform touch action (mjsonWire)."
+      },
+      "methods": []
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/multi/perform": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/touch/multi/perform",
+        "method": "POST",
+        "path": "/session/:sessionId/touch/multi/perform",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/touch/multi/perform",
+        "desc": "Perform multitouch action (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "element.performMultiAction",
+          "args": [
+            "actions"
+          ],
+          "cb": [
+            "err",
+            "touchStateObjects"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/shake": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/shake",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/shake",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/shake",
+        "desc": "Shake device (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "shakeDevice",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "shake",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/lock": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/lock",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/lock",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/lock",
+        "desc": "Lock device (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "lockDevice",
+          "args": [
+            "seconds",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "lock",
+          "args": [
+            "seconds",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "unlockDevice",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "unlock",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/keyevent": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/keyevent",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/keyevent",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/keyevent",
+        "desc": "Send key event to device (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "deviceKeyEvent",
+          "args": [
+            "keycode",
+            "metastate",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "metastate is optional",
+        {
+          "name": "pressDeviceKey",
+          "args": [
+            "keycode",
+            "metastate",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "metastate is optional"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/rotate": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/rotate",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/rotate",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/rotate",
+        "desc": "Rotate device (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "rotateDevice",
+          "args": [
+            "element",
+            "opts",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "rotateDevice",
+          "args": [
+            "opts",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "opts is like the following:",
+        {
+          "name": "rotate",
+          "args": [
+            "element",
+            "opts",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "rotate",
+          "args": [
+            "opts",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "opts is like the following:",
+        {
+          "name": "element.rotate",
+          "args": [
+            "opts",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "opts is like the following:"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/appium/device/current_activity": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/appium/device/current_activity",
+        "method": "GET",
+        "path": "/session/:sessionId/appium/device/current_activity",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/appium/device/current_activity",
+        "desc": "Get current activity (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "getCurrentDeviceActivity",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "getCurrentActivity",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/install_app": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/install_app",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/install_app",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/install_app",
+        "desc": "Install app (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "installAppOnDevice",
+          "args": [
+            "appPath",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "installApp",
+          "args": [
+            "appPath",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/remove_app": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/remove_app",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/remove_app",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/remove_app",
+        "desc": "Remove app (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "removeAppFromDevice",
+          "args": [
+            "appId",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "removeApp",
+          "args": [
+            "appId",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/app_installed": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/app_installed",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/app_installed",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/app_installed",
+        "desc": "Check if the app is installed (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "isAppInstalledOnDevice",
+          "args": [
+            "bundleId",
+            "cb"
+          ],
+          "cb": [
+            "isInstalled",
+            "err"
+          ]
+        },
+        {
+          "name": "isAppInstalled",
+          "args": [
+            "bundleId",
+            "cb"
+          ],
+          "cb": [
+            "isInstalled",
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/push_file": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/push_file",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/push_file",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/push_file",
+        "desc": "Push file to device (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "pushFileToDevice",
+          "args": [
+            "pathOnDevice",
+            "base64Data",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "pushFile",
+          "args": [
+            "pathOnDevice",
+            "base64Data",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/pull_file": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/pull_file",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/pull_file",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/pull_file",
+        "desc": "Pull file from device (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "pullFileFromDevice",
+          "args": [
+            "pathOnDevice",
+            "cb"
+          ],
+          "cb": [
+            "base64EncodedData",
+            "err"
+          ]
+        },
+        {
+          "name": "pullFile",
+          "args": [
+            "pathOnDevice",
+            "cb"
+          ],
+          "cb": [
+            "base64EncodedData",
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/pull_folder": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/pull_folder",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/pull_folder",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/pull_folder",
+        "desc": "Pull folder from device (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "pullFolderFromDevice",
+          "args": [
+            "pathOnDevice",
+            "cb"
+          ],
+          "cb": [
+            "base64EncodedData",
+            "err"
+          ]
+        },
+        {
+          "name": "pullFolder",
+          "args": [
+            "pathOnDevice",
+            "cb"
+          ],
+          "cb": [
+            "base64EncodedData",
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/toggle_airplane_mode": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/toggle_airplane_mode",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/toggle_airplane_mode",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/toggle_airplane_mode",
+        "desc": "Toggle airplane mode (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "toggleAirplaneModeOnDevice",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "toggleAirplaneMode",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "toggleFlightMode",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/toggle_wifi": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/toggle_wifi",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/toggle_wifi",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/toggle_wifi",
+        "desc": "Toggle wifi (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "toggleWiFiOnDevice",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "toggleWiFi",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/toggle_location_services": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/toggle_location_services",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/toggle_location_services",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/toggle_location_services",
+        "desc": "Toggle location services (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "toggleLocationServicesOnDevice",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "toggleLocationServices",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/toggle_data": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/toggle_data",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/toggle_data",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/toggle_data",
+        "desc": "Toggle data (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "toggleDataOnDevice",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "toggleData",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/start_activity": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/start_activity",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/start_activity",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/start_activity",
+        "desc": "Start an Android activity (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "startActivity",
+          "args": [
+            "options",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "Start an arbitrary Android activity during a session. The 'options' parameter should"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/launch": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/app/launch",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/app/launch",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/launch",
+        "desc": "Launch app (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "launchApp",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/close": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/app/close",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/app/close",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/close",
+        "desc": "Close app (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "closeApp",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/reset": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/app/reset",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/app/reset",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/reset",
+        "desc": "Reset app (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "resetApp",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/background": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/app/background",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/app/background",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/background",
+        "desc": "Background app (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "backgroundApp",
+          "args": [
+            "seconds",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/end_test_coverage": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/app/end_test_coverage",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/app/end_test_coverage",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/end_test_coverage",
+        "desc": "End test coverage (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "endTestCoverageForApp",
+          "args": [
+            "intentToBroadcast",
+            "pathOnDevice"
+          ],
+          "cb": [
+            "base64Data",
+            "err"
+          ]
+        },
+        {
+          "name": "endTestCoverage",
+          "args": [
+            "intentToBroadcast",
+            "pathOnDevice"
+          ],
+          "cb": [
+            "base64Data",
+            "err"
+          ]
+        },
+        {
+          "name": "endCoverage",
+          "args": [
+            "intentToBroadcast",
+            "pathOnDevice"
+          ],
+          "cb": [
+            "base64Data",
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/complex_find": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/app/complex_find",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/app/complex_find",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/complex_find",
+        "desc": "Find within app (mjsonWire)."
+      },
+      "methods": [
+        "complexFindInApp(selector) -> cb(element(s))"
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/strings": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/app/strings",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/app/strings",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/app/strings",
+        "desc": "Retrieve app strings (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "getAppStrings",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/element/:elementId?/value": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/element/:elementId?/value",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/element/:elementId?/value",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/element/:elementId?/value",
+        "desc": "Set element immediate value (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "setImmediateValueInApp",
+          "args": [
+            "element",
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "setImmediateValue",
+          "args": [
+            "element",
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "element.setImmediateValueInApp",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "element.setImmediateValue",
+          "args": [
+            "value",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/network_connection": {
+      "jsonWire": {
+        "key": "GET /session/:sessionId/network_connection",
+        "method": "GET",
+        "path": "/session/:sessionId/network_connection",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#GET_/session/:sessionId/network_connection",
+        "desc": "Get appium selendroid network connection type (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "getNetworkConnection",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "networkConnectionInfo"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/network_connection": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/network_connection",
+        "method": "POST",
+        "path": "/session/:sessionId/network_connection",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/network_connection",
+        "desc": "Set appium selendroid network connection type (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "setNetworkConnection",
+          "args": [
+            "type",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/hide_keyboard": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/hide_keyboard",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/hide_keyboard",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/hide_keyboard",
+        "desc": "Hide keyboard (mjsonWire)."
+      },
+      "methods": [
+        "hideKeyboard() -> cb(err)",
+        {
+          "name": "hideKeyboard",
+          "args": [
+            "keyName",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "hideKeyboard",
+          "args": [
+            "{strategy:'pressKey'",
+            "key:'<key>'}"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "hideKeyboard",
+          "args": [
+            "{strategy:'tapOutside'}"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/open_notifications": {
+      "jsonWire": {
+        "key": "POST /session/:sessionId/appium/device/open_notifications",
+        "method": "POST",
+        "path": "/session/:sessionId/appium/device/open_notifications",
+        "url": "http://code.google.com/p/selenium/wiki/JsonWireProtocol#POST_/session/:sessionId/appium/device/open_notifications",
+        "desc": "Open Notifications (mjsonWire)."
+      },
+      "methods": [
+        {
+          "name": "openNotifications",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    ":extra": {
+      "jsonWire": null,
+      "methods": [
+        {
+          "name": "attach",
+          "args": [
+            "sessionID",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "Connect to an already-active session.",
+        {
+          "name": "detach",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "Detach from the current session.",
+        {
+          "name": "getSessionId",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "sessionId"
+          ]
+        },
+        "getSessionId()",
+        {
+          "name": "newWindow",
+          "args": [
+            "url",
+            "name",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "newWindow",
+          "args": [
+            "url",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "name: optional window name",
+        {
+          "name": "windowName",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "name"
+          ]
+        },
+        "configureHttp(opts)",
+        {
+          "name": "waitFor",
+          "args": [
+            "asserter",
+            "timeout",
+            "pollFreq",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "return_value"
+          ]
+        },
+        "timeout and pollFreq are optional (default 1000ms/200ms)",
+        {
+          "name": "waitFor",
+          "args": [
+            "opts",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "opts with the following fields: timeout, pollFreq, asserter.",
+        {
+          "name": "asserter like: function",
+          "args": [
+            "browser",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "satisfied",
+            "return_value"
+          ]
+        },
+        {
+          "name": "waitForElements",
+          "args": [
+            "using",
+            "value",
+            "asserter",
+            "timeout",
+            "pollFreq",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "els"
+          ]
+        },
+        {
+          "name": "waitForElements",
+          "args": [
+            "using",
+            "value",
+            "timeout",
+            "pollFreq",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "els"
+          ]
+        },
+        "timeout and pollFreq are optional (default 1000ms/200ms)",
+        {
+          "name": "waitForElements",
+          "args": [
+            "using",
+            "value",
+            "opts",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "els"
+          ]
+        },
+        "opts with the following fields: timeout, pollFreq, asserter.",
+        {
+          "name": "asserter like: function",
+          "args": [
+            "element",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "satisfied",
+            "el"
+          ]
+        },
+        "Waits for JavaScript condition to be true (async script polling within browser):",
+        {
+          "name": "waitForConditionInBrowser",
+          "args": [
+            "conditionExpr",
+            "timeout",
+            "pollFreq",
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "boolean"
+          ]
+        },
+        "conditionExpr: condition expression, should return a boolean",
+        {
+          "name": "sauceJobUpdate",
+          "args": [
+            "jsonData",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "sauceJobStatus",
+          "args": [
+            "hasPassed",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "sleep",
+          "args": [
+            "ms",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "noop",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "Equivalent to the python sendKeys binding. Upload file if",
+        {
+          "name": "element.sendKeys",
+          "args": [
+            "keys",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        "Equivalent to the python sendKeys binding, but replaces texts instead of keeping original. Upload file if",
+        {
+          "name": "element.setText",
+          "args": [
+            "keys",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "isVisible",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "boolean"
+          ]
+        },
+        {
+          "name": "element.sleep",
+          "args": [
+            "ms",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        },
+        {
+          "name": "element.noop",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "POST /session/:sessionId/appium/device/is_locked": {
+      "jsonWire": null,
+      "methods": [
+        {
+          "name": "isLocked",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    },
+    "GET /session/:sessionId/appium/settings": {
+      "jsonWire": null,
+      "methods": [
+        {
+          "name": "settings",
+          "args": [
+            "cb"
+          ],
+          "cb": [
+            "err",
+            "settingsObject"
+          ]
+        }
+      ]
+    },
+    "POST /session/:sessionId/appium/settings": {
+      "jsonWire": null,
+      "methods": [
+        {
+          "name": "updateSettings",
+          "args": [
+            "settingsObject",
+            "cb"
+          ],
+          "cb": [
+            "err"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1310 @@
+{
+  "meta": {
+    "url": "https://code.google.com/p/selenium/wiki/JsonWireProtocol",
+    "version": "0.0.0",
+    "date": "2015-04-30T18:43:37.060Z"
+  },
+  "data": {
+    "/status": {
+      "GET": {
+        "comment": "Query the server's current status.  The server should respond with a general \"HTTP 200 OK\" response if it is alive and accepting commands. The response body should be a JSON object describing the state of the server. All server implementations should return two basic objects describing the server's current platform and when the server was built. All fields are optional; if omitted, the client should assume the value is uknown. Furthermore, server implementations may include additional fields not listed here.  Key  Type  Description   build  object    build.version  string  A generic release label (i.e. \"2.0rc3\")   build.revision  string  The revision of the local source control client from which the server was built   build.time  string  A timestamp from when the server was built.   os  object    os.arch  string  The current system architecture.   os.name  string  The name of the operating system the server is currently running on: \"windows\", \"linux\", etc.   os.version  string  The operating system version.",
+        "commentHTML": "Query the server's current status.  The server should respond with a general \"HTTP 200 OK\" response if it is alive and accepting commands. The response body should be a JSON object describing the state of the server. All server implementations should return two basic objects describing the server's current platform and when the server was built. All fields are optional; if omitted, the client should assume the value is uknown. Furthermore, server implementations may include additional fields not listed here. <p></p><p></p><table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Key</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Type</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Description</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> build </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> object </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> build.version </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> string </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> A generic release label (i.e. \"2.0rc3\") </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> build.revision </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> string </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> The revision of the local source control client from which the server was built </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> build.time </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> string </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> A timestamp from when the server was built. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> os </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> object </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> os.arch </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> string </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> The current system architecture. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> os.name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> string </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> The name of the operating system the server is currently running on: \"windows\", \"linux\", etc. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> os.version </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> string </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> The operating system version. </td></tr> </tbody></table><p></p><p></p>",
+        "returns": "{object} An object describing the general status of the server.",
+        "returnsHTML": "<tt>{object}</tt> An object describing the general status of the server."
+      }
+    },
+    "/session": {
+      "POST": {
+        "comment": "Create a new session. The server should attempt to create a session that most closely matches the desired and required capabilities. Required capabilities have higher priority than desired capabilities and must be set for the session to be created.",
+        "commentHTML": "Create a new session. The server should attempt to create a session that most closely matches the desired and required capabilities. Required capabilities have higher priority than desired capabilities and must be set for the session to be created.",
+        "JSON Parameters": {
+          "desiredCapabilities": "{object} An object describing the session's desired capabilities.",
+          "requiredCapabilities": "{object} An object describing the session's required capabilities (Optional)."
+        },
+        "returns": "{object} An object describing the session's capabilities.",
+        "returnsHTML": "<tt>{object}</tt> An object describing the session's <a href=\"#Actual_Capabilities\">capabilities</a>.",
+        "Potential Errors": {
+          "SessionNotCreatedException": "If a required capability could not be set."
+        }
+      }
+    },
+    "/sessions": {
+      "GET": {
+        "comment": "Returns a list of the currently active sessions. Each session will be returned as a list of JSON objects with the following keys:  Key  Type  Description   id  string  The session ID.   capabilities  object  An object describing the session's capabilities.",
+        "commentHTML": "Returns a list of the currently active sessions. Each session will be returned as a list of JSON objects with the following keys: <p></p><p></p><table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Key</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Type</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Description </strong></td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> id </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> string </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> The session ID. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> capabilities </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> object </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> An object describing the session's <a href=\"#Actual_Capabilities\">capabilities</a>. </td></tr> </tbody></table><p></p><p></p>",
+        "returns": "{Array.<Object>} A list of the currently active sessions.",
+        "returnsHTML": "<tt>{Array.&lt;Object&gt;}</tt> A list of the currently active sessions."
+      }
+    },
+    "/session/:sessionId": {
+      "GET": {
+        "comment": "Retrieve the capabilities of the specified session.",
+        "commentHTML": "Retrieve the capabilities of the specified session.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{object} An object describing the session's capabilities.",
+        "returnsHTML": "<tt>{object}</tt> An object describing the session's <a href=\"#Actual_Capabilities\">capabilities</a>."
+      },
+      "DELETE": {
+        "comment": "Delete the session.",
+        "commentHTML": "Delete the session.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        }
+      }
+    },
+    "/session/:sessionId/timeouts": {
+      "POST": {
+        "comment": "Configure the amount of time that a particular type of operation can execute for before they are aborted and a |Timeout| error is returned to the client.",
+        "commentHTML": "Configure the amount of time that a particular type of operation can execute for before they are aborted and a |Timeout| error is returned to the client.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "type": "{string} The type of operation to set the timeout for. Valid values are: \"script\" for script timeouts, \"implicit\" for modifying the implicit wait timeout and \"page load\" for setting a page load timeout.",
+          "ms": "{number} The amount of time, in milliseconds, that time-limited commands are permitted to run."
+        }
+      }
+    },
+    "/session/:sessionId/timeouts/async_script": {
+      "POST": {
+        "comment": "Set the amount of time, in milliseconds, that asynchronous scripts executed by /session/:sessionId/execute_async are permitted to run before they are aborted and a |Timeout| error is returned to the client.",
+        "commentHTML": "Set the amount of time, in milliseconds, that asynchronous scripts executed by <tt>/session/:sessionId/execute_async</tt> are permitted to run before they are aborted and a |Timeout| error is returned to the client.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "ms": "{number} The amount of time, in milliseconds, that time-limited commands are permitted to run."
+        }
+      }
+    },
+    "/session/:sessionId/timeouts/implicit_wait": {
+      "POST": {
+        "comment": "Set the amount of time the driver should wait when searching for elements. When searching for a single element, the driver should poll the page until an element is found or the timeout expires, whichever occurs first. When searching for multiple elements, the driver should poll the page until at least one element is found or the timeout expires, at which point it should return an empty list. If this command is never sent, the driver should default to an implicit wait of 0ms.",
+        "commentHTML": "Set the amount of time the driver should wait when searching for elements. When searching for a single element, the driver should poll the page until an element is found or the timeout expires, whichever occurs first. When searching for multiple elements, the driver should poll the page until at least one element is found or the timeout expires, at which point it should return an empty list. <p></p><p>If this command is never sent, the driver should default to an implicit wait of 0ms.</p>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "ms": "{number} The amount of time to wait, in milliseconds. This value has a lower bound of 0."
+        }
+      }
+    },
+    "/session/:sessionId/window_handle": {
+      "GET": {
+        "comment": "Retrieve the current window handle.",
+        "commentHTML": "Retrieve the current window handle.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{string} The current window handle.",
+        "returnsHTML": "<tt>{string}</tt> The current window handle.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/window_handles": {
+      "GET": {
+        "comment": "Retrieve the list of all window handles available to the session.",
+        "commentHTML": "Retrieve the list of all window handles available to the session.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{Array.<string>} A list of window handles.",
+        "returnsHTML": "<tt>{Array.&lt;string&gt;}</tt> A list of window handles."
+      }
+    },
+    "/session/:sessionId/url": {
+      "GET": {
+        "comment": "Retrieve the URL of the current page.",
+        "commentHTML": "Retrieve the URL of the current page.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{string} The current URL.",
+        "returnsHTML": "<tt>{string}</tt> The current URL.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      },
+      "POST": {
+        "comment": "Navigate to a new URL.",
+        "commentHTML": "Navigate to a new URL.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "url": "{string} The URL to navigate to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/forward": {
+      "POST": {
+        "comment": "Navigate forwards in the browser history, if possible.",
+        "commentHTML": "Navigate forwards in the browser history, if possible.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/back": {
+      "POST": {
+        "comment": "Navigate backwards in the browser history, if possible.",
+        "commentHTML": "Navigate backwards in the browser history, if possible.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/refresh": {
+      "POST": {
+        "comment": "Refresh the current page.",
+        "commentHTML": "Refresh the current page.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/execute": {
+      "POST": {
+        "comment": "Inject a snippet of JavaScript into the page for execution in the context of the currently selected frame. The executed script is assumed to be synchronous and the result of evaluating the script is returned to the client. The script argument defines the script to execute in the form of a function body.  The value returned by that function will be returned to the client.  The function will be invoked with the provided args array and the values may be accessed via the arguments object in the order specified. Arguments may be any JSON-primitive, array, or JSON object.  JSON objects that define a WebElement reference will be converted to the corresponding DOM element. Likewise, any WebElements in the script result will be returned to the client as WebElement JSON objects.",
+        "commentHTML": "Inject a snippet of JavaScript into the page for execution in the context of the currently selected frame. The executed script is assumed to be synchronous and the result of evaluating the script is returned to the client. <p></p><p>The <tt>script</tt> argument defines the script to execute in the form of a function body.  The value returned by that function will be returned to the client.  The function will be invoked with the provided <tt>args</tt> array and the values may be accessed via the <tt>arguments</tt> object in the order specified. </p><p>Arguments may be any JSON-primitive, array, or JSON object.  JSON objects that define a <a href=\"#WebElement_JSON_Object\">WebElement reference</a> will be converted to the corresponding DOM element. Likewise, any WebElements in the script result will be returned to the client as <a href=\"#WebElement_JSON_Object\">WebElement JSON objects</a>.</p>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "script": "{string} The script to execute.",
+          "args": "{Array.<*>} The script arguments."
+        },
+        "returns": "{*} The script result.",
+        "returnsHTML": "<tt>{*}</tt> The script result.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If one of the script arguments is a WebElement that is not attached to the page's DOM.",
+          "JavaScriptError": "If the script throws an Error."
+        }
+      }
+    },
+    "/session/:sessionId/execute_async": {
+      "POST": {
+        "comment": "Inject a snippet of JavaScript into the page for execution in the context of the currently selected frame. The executed script is assumed to be asynchronous and must signal that is done by invoking the provided callback, which is always provided as the final argument to the function.  The value to this callback will be returned to the client. Asynchronous script commands may not span page loads.  If an unload event is fired while waiting for a script result, an error should be returned to the client. The script argument defines the script to execute in teh form of a function body.  The function will be invoked with the provided args array and the values may be accessed via the arguments object in the order specified. The final argument will always be a callback function that must be invoked to signal that the script has finished. Arguments may be any JSON-primitive, array, or JSON object.  JSON objects that define a WebElement reference will be converted to the corresponding DOM element. Likewise, any WebElements in the script result will be returned to the client as WebElement JSON objects.",
+        "commentHTML": "Inject a snippet of JavaScript into the page for execution in the context of the currently selected frame. The executed script is assumed to be asynchronous and must signal that is done by invoking the provided callback, which is always provided as the final argument to the function.  The value to this callback will be returned to the client. <p></p><p>Asynchronous script commands may not span page loads.  If an <tt>unload</tt> event is fired while waiting for a script result, an error should be returned to the client. </p><p>The <tt>script</tt> argument defines the script to execute in teh form of a function body.  The function will be invoked with the provided <tt>args</tt> array and the values may be accessed via the <tt>arguments</tt> object in the order specified. The final argument will always be a callback function that must be invoked to signal that the script has finished. </p><p>Arguments may be any JSON-primitive, array, or JSON object.  JSON objects that define a <a href=\"#WebElement_JSON_Object\">WebElement reference</a> will be converted to the corresponding DOM element. Likewise, any WebElements in the script result will be returned to the client as <a href=\"#WebElement_JSON_Object\">WebElement JSON objects</a>.</p>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "script": "{string} The script to execute.",
+          "args": "{Array.<*>} The script arguments."
+        },
+        "returns": "{*} The script result.",
+        "returnsHTML": "<tt>{*}</tt> The script result.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If one of the script arguments is a WebElement that is not attached to the page's DOM.",
+          "Timeout": "If the script callback is not invoked before the timout expires. Timeouts are controlled by the /session/:sessionId/timeout/async_script command.",
+          "JavaScriptError": "If the script throws an Error or if an unload event is fired while waiting for the script to finish."
+        }
+      }
+    },
+    "/session/:sessionId/screenshot": {
+      "GET": {
+        "comment": "Take a screenshot of the current page.",
+        "commentHTML": "Take a screenshot of the current page.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{string} The screenshot as a base64 encoded PNG.",
+        "returnsHTML": "<tt>{string}</tt> The screenshot as a base64 encoded PNG.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/ime/available_engines": {
+      "GET": {
+        "comment": "List all available engines on the machine. To use an engine, it has to be present in this list.",
+        "commentHTML": "List all available engines on the machine. To use an engine, it has to be present in this list.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{Array.<string>} A list of available engines",
+        "returnsHTML": "<tt>{Array.&lt;string&gt;}</tt> A list of available engines",
+        "Potential Errors": {
+          "ImeNotAvailableException": "If the host does not support IME"
+        }
+      }
+    },
+    "/session/:sessionId/ime/active_engine": {
+      "GET": {
+        "comment": "Get the name of the active IME engine. The name string is platform specific.",
+        "commentHTML": "Get the name of the active IME engine. The name string is platform specific.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{string} The name of the active IME engine.",
+        "returnsHTML": "<tt>{string}</tt> The name of the active IME engine.",
+        "Potential Errors": {
+          "ImeNotAvailableException": "If the host does not support IME"
+        }
+      }
+    },
+    "/session/:sessionId/ime/activated": {
+      "GET": {
+        "comment": "Indicates whether IME input is active at the moment (not if it's available.",
+        "commentHTML": "Indicates whether IME input is active at the moment (not if it's available.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{boolean} true if IME input is available and currently active, false otherwise",
+        "returnsHTML": "<tt>{boolean}</tt> true if IME input is available and currently active, false otherwise",
+        "Potential Errors": {
+          "ImeNotAvailableException": "If the host does not support IME"
+        }
+      }
+    },
+    "/session/:sessionId/ime/deactivate": {
+      "POST": {
+        "comment": "De-activates the currently-active IME engine.",
+        "commentHTML": "De-activates the currently-active IME engine.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "ImeNotAvailableException": "If the host does not support IME"
+        }
+      }
+    },
+    "/session/:sessionId/ime/activate": {
+      "POST": {
+        "comment": "Make an engines that is available (appears on the list returned by getAvailableEngines) active. After this call, the engine will be added to the list of engines loaded in the IME daemon and the input sent using sendKeys will be converted by the active engine. Note that this is a platform-independent method of activating IME (the platform-specific way being using keyboard shortcuts",
+        "commentHTML": "Make an engines that is available (appears on the list returned by getAvailableEngines) active. After this call, the engine will be added to the list of engines loaded in the IME daemon and the input sent using sendKeys will be converted by the active engine. Note that this is a platform-independent method of activating IME (the platform-specific way being using keyboard shortcuts",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "engine": "{string} Name of the engine to activate."
+        },
+        "Potential Errors": {
+          "ImeActivationFailedException": "If the engine is not available or if the activation fails for other reasons.",
+          "ImeNotAvailableException": "If the host does not support IME"
+        }
+      }
+    },
+    "/session/:sessionId/frame": {
+      "POST": {
+        "comment": "Change focus to another frame on the page. If the frame id is null, the server should switch to the page's default content.",
+        "commentHTML": "Change focus to another frame on the page. If the frame <tt>id</tt> is <tt>null</tt>, the server should switch to the page's default content.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "id": "{string|number|null|WebElement JSON Object} Identifier for the frame to change focus to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "NoSuchFrame": "If the frame specified by id cannot be found."
+        }
+      }
+    },
+    "/session/:sessionId/frame/parent": {
+      "POST": {
+        "comment": "Change focus to the parent context. If the current context is the top level browsing context, the context remains unchanged.",
+        "commentHTML": "Change focus to the parent context. If the current context is the top level browsing context, the context remains unchanged.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        }
+      }
+    },
+    "/session/:sessionId/window": {
+      "POST": {
+        "comment": "Change focus to another window. The window to change focus to may be specified by its server assigned window handle, or by the value of its name attribute.",
+        "commentHTML": "Change focus to another window. The window to change focus to may be specified by its server assigned window handle, or by the value of its <tt>name</tt> attribute.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "name": "{string} The window to change focus to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the window specified by name cannot be found."
+        }
+      },
+      "DELETE": {
+        "comment": "Close the current window.",
+        "commentHTML": "Close the current window.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window is already closed"
+        }
+      }
+    },
+    "/session/:sessionId/window/:windowHandle/size": {
+      "POST": {
+        "comment": "Change the size of the specified window. If the :windowHandle URL parameter is \"current\", the currently active window will be resized.",
+        "commentHTML": "Change the size of the specified window. If the :windowHandle URL parameter is \"current\", the currently active window will be resized.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "width": "{number} The new window width.",
+          "height": "{number} The new window height."
+        }
+      },
+      "GET": {
+        "comment": "Get the size of the specified window. If the :windowHandle URL parameter is \"current\", the size of the currently active window will be returned.",
+        "commentHTML": "Get the size of the specified window. If the :windowHandle URL parameter is \"current\", the size of the currently active window will be returned.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{width: number, height: number} The size of the window.",
+        "returnsHTML": "<tt>{width: number, height: number}</tt> The size of the window.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the specified window cannot be found."
+        }
+      }
+    },
+    "/session/:sessionId/window/:windowHandle/position": {
+      "POST": {
+        "comment": "Change the position of the specified window. If the :windowHandle URL parameter is \"current\", the currently active window will be moved.",
+        "commentHTML": "Change the position of the specified window. If the :windowHandle URL parameter is \"current\", the currently active window will be moved.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "x": "{number} The X coordinate to position the window at, relative to the upper left corner of the screen.",
+          "y": "{number} The Y coordinate to position the window at, relative to the upper left corner of the screen."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the specified window cannot be found."
+        }
+      },
+      "GET": {
+        "comment": "Get the position of the specified window. If the :windowHandle URL       parameter is \"current\", the position of the currently active window will be returned.",
+        "commentHTML": "Get the position of the specified window. If the :windowHandle URL       parameter is \"current\", the position of the currently active window will be returned.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{x: number, y: number} The X and Y coordinates for the window, relative to the upper left corner of the screen.",
+        "returnsHTML": "<tt>{x: number, y: number}</tt> The X and Y coordinates for the window, relative to the upper left corner of the screen.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the specified window cannot be found."
+        }
+      }
+    },
+    "/session/:sessionId/window/:windowHandle/maximize": {
+      "POST": {
+        "comment": "Maximize the specified window if not already maximized. If the :windowHandle URL parameter is \"current\", the currently active window will be maximized.",
+        "commentHTML": "Maximize the specified window if not already maximized. If the :windowHandle URL parameter is \"current\", the currently active window will be maximized.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the specified window cannot be found."
+        }
+      }
+    },
+    "/session/:sessionId/cookie": {
+      "GET": {
+        "comment": "Retrieve all cookies visible to the current page.",
+        "commentHTML": "Retrieve all cookies visible to the current page.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{Array.<object>} A list of cookies.",
+        "returnsHTML": "<tt>{Array.&lt;object&gt;}</tt> A list of <a href=\"#Cookie_JSON_Object\">cookies</a>.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      },
+      "POST": {
+        "comment": "Set a cookie. If the cookie path is not specified, it should be set to \"/\". Likewise, if the domain is omitted, it should default to the current page's domain.",
+        "commentHTML": "Set a cookie. If the <a href=\"#Cookie_JSON_Object\">cookie</a> path is not specified, it should be set to <tt>\"/\"</tt>. Likewise, if the domain is omitted, it should default to the current page's domain.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "cookie": "{object} A JSON object defining the cookie to add."
+        }
+      },
+      "DELETE": {
+        "comment": "Delete all cookies visible to the current page.",
+        "commentHTML": "Delete all cookies visible to the current page.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "InvalidCookieDomain": "If the cookie's domain is not visible from the current page.",
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "UnableToSetCookie": "If attempting to set a cookie on a page that does not support cookies (e.g. pages with mime-type text/plain)."
+        }
+      }
+    },
+    "/session/:sessionId/cookie/:name": {
+      "DELETE": {
+        "comment": "Delete the cookie with the given name. This command should be a no-op if there is no such cookie visible to the current page.",
+        "commentHTML": "Delete the cookie with the given name. This command should be a no-op if there is no such cookie visible to the current page.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":name": "The name of the cookie to delete."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/source": {
+      "GET": {
+        "comment": "Get the current page source.",
+        "commentHTML": "Get the current page source.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{string} The current page source.",
+        "returnsHTML": "<tt>{string}</tt> The current page source.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/title": {
+      "GET": {
+        "comment": "Get the current page title.",
+        "commentHTML": "Get the current page title.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{string} The current page title.",
+        "returnsHTML": "<tt>{string}</tt> The current page title.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/element": {
+      "POST": {
+        "comment": "Search for an element on the page, starting from the document root. The located element will be returned as a WebElement JSON object. The table below lists the locator strategies that each server should support. Each locator must return the first matching element located in the DOM.  Strategy  Description   class name  Returns an element whose class name contains the search value; compound class names are not permitted.   css selector  Returns an element matching a CSS selector.   id  Returns an element whose ID attribute matches the search value.   name  Returns an element whose NAME attribute matches the search value.   link text  Returns an anchor element whose visible text matches the search value.   partial link text  Returns an anchor element whose visible text partially matches the search value.   tag name  Returns an element whose tag name matches the search value.   xpath  Returns an element matching an XPath expression.",
+        "commentHTML": "Search for an element on the page, starting from the document root. The located element will be returned as a WebElement JSON object. The table below lists the locator strategies that each server should support. Each locator must return the first matching element located in the DOM. <p></p><p></p><table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Strategy</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Description</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> class name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element whose class name contains the search value; compound class names are not permitted. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> css selector </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element matching a CSS selector. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> id </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element whose ID attribute matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element whose NAME attribute matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> link text </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an anchor element whose visible text matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> partial link text </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an anchor element whose visible text partially matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> tag name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element whose tag name matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> xpath </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element matching an XPath expression. </td></tr> </tbody></table><p></p><p></p>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "using": "{string} The locator strategy to use.",
+          "value": "{string} The The search target."
+        },
+        "returns": "{ELEMENT:string} A WebElement JSON object for the located element.",
+        "returnsHTML": "<tt>{ELEMENT:string}</tt> A WebElement JSON object for the located element.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "NoSuchElement": "If the element cannot be found.",
+          "XPathLookupError": "If using XPath and the input expression is invalid."
+        }
+      }
+    },
+    "/session/:sessionId/elements": {
+      "POST": {
+        "comment": "Search for multiple elements on the page, starting from the document root. The located elements will be returned as a WebElement JSON objects. The table below lists the locator strategies that each server should support. Elements should be returned in the order located in the DOM.  Strategy  Description   class name  Returns all elements whose class name contains the search value; compound class names are not permitted.   css selector  Returns all elements matching a CSS selector.   id  Returns all elements whose ID attribute matches the search value.   name  Returns all elements whose NAME attribute matches the search value.   link text  Returns all anchor elements whose visible text matches the search value.   partial link text  Returns all anchor elements whose visible text partially matches the search value.   tag name  Returns all elements whose tag name matches the search value.   xpath  Returns all elements matching an XPath expression.",
+        "commentHTML": "Search for multiple elements on the page, starting from the document root. The located elements will be returned as a WebElement JSON objects. The table below lists the locator strategies that each server should support. Elements should be returned in the order located in the DOM. <p></p><p></p><table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Strategy</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Description</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> class name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements whose class name contains the search value; compound class names are not permitted. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> css selector </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements matching a CSS selector. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> id </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements whose ID attribute matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements whose NAME attribute matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> link text </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all anchor elements whose visible text matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> partial link text </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all anchor elements whose visible text partially matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> tag name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements whose tag name matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> xpath </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements matching an XPath expression. </td></tr> </tbody></table><p></p><p></p>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "using": "{string} The locator strategy to use.",
+          "value": "{string} The The search target."
+        },
+        "returns": "{Array.<{ELEMENT:string}>} A list of WebElement JSON objects for the located elements.",
+        "returnsHTML": "<tt>{Array.&lt;{ELEMENT:string}&gt;}</tt> A list of WebElement JSON objects for the located elements.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "XPathLookupError": "If using XPath and the input expression is invalid."
+        }
+      }
+    },
+    "/session/:sessionId/element/active": {
+      "POST": {
+        "comment": "Get the element on the page that currently has focus. The element will be returned as a WebElement JSON object.",
+        "commentHTML": "Get the element on the page that currently has focus. The element will be returned as a WebElement JSON object.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{ELEMENT:string} A WebElement JSON object for the active element.",
+        "returnsHTML": "<tt>{ELEMENT:string}</tt> A WebElement JSON object for the active element.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id": {
+      "GET": {
+        "comment": "Describe the identified element. Note: This command is reserved for future use; its return type is currently undefined.",
+        "commentHTML": "Describe the identified element. <p></p><p><strong>Note:</strong> This command is reserved for future use; its return type is currently undefined.</p>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/element": {
+      "POST": {
+        "comment": "Search for an element on the page, starting from the identified element. The located element will be returned as a WebElement JSON object. The table below lists the locator strategies that each server should support. Each locator must return the first matching element located in the DOM.  Strategy  Description   class name  Returns an element whose class name contains the search value; compound class names are not permitted.   css selector  Returns an element matching a CSS selector.   id  Returns an element whose ID attribute matches the search value.   name  Returns an element whose NAME attribute matches the search value.   link text  Returns an anchor element whose visible text matches the search value.   partial link text  Returns an anchor element whose visible text partially matches the search value.   tag name  Returns an element whose tag name matches the search value.   xpath  Returns an element matching an XPath expression. The provided XPath expression must be applied to the server \"as is\"; if the expression is not relative to the element root, the server should not modify it. Consequently, an XPath query may return elements not contained in the root element's subtree.",
+        "commentHTML": "Search for an element on the page, starting from the identified element. The located element will be returned as a WebElement JSON object. The table below lists the locator strategies that each server should support. Each locator must return the first matching element located in the DOM. <p></p><p></p><table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Strategy</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Description</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> class name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element whose class name contains the search value; compound class names are not permitted. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> css selector </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element matching a CSS selector. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> id </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element whose ID attribute matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element whose NAME attribute matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> link text </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an anchor element whose visible text matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> partial link text </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an anchor element whose visible text partially matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> tag name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element whose tag name matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> xpath </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns an element matching an XPath expression. The provided XPath expression must be applied to the server \"as is\"; if the expression is not relative to the element root, the server should not modify it. Consequently, an XPath query may return elements not contained in the root element's subtree. </td></tr> </tbody></table><p></p><p></p>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "JSON Parameters": {
+          "using": "{string} The locator strategy to use.",
+          "value": "{string} The The search target."
+        },
+        "returns": "{ELEMENT:string} A WebElement JSON object for the located element.",
+        "returnsHTML": "<tt>{ELEMENT:string}</tt> A WebElement JSON object for the located element.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM.",
+          "NoSuchElement": "If the element cannot be found.",
+          "XPathLookupError": "If using XPath and the input expression is invalid."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/elements": {
+      "POST": {
+        "comment": "Search for multiple elements on the page, starting from the identified element. The located elements will be returned as a WebElement JSON objects. The table below lists the locator strategies that each server should support. Elements should be returned in the order located in the DOM.  Strategy  Description   class name  Returns all elements whose class name contains the search value; compound class names are not permitted.   css selector  Returns all elements matching a CSS selector.   id  Returns all elements whose ID attribute matches the search value.   name  Returns all elements whose NAME attribute matches the search value.   link text  Returns all anchor elements whose visible text matches the search value.   partial link text  Returns all anchor elements whose visible text partially matches the search value.   tag name  Returns all elements whose tag name matches the search value.   xpath  Returns all elements matching an XPath expression. The provided XPath expression must be applied to the server \"as is\"; if the expression is not relative to the element root, the server should not modify it. Consequently, an XPath query may return elements not contained in the root element's subtree.",
+        "commentHTML": "Search for multiple elements on the page, starting from the identified element. The located elements will be returned as a WebElement JSON objects. The table below lists the locator strategies that each server should support. Elements should be returned in the order located in the DOM. <p></p><p></p><table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Strategy</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Description</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> class name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements whose class name contains the search value; compound class names are not permitted. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> css selector </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements matching a CSS selector. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> id </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements whose ID attribute matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements whose NAME attribute matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> link text </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all anchor elements whose visible text matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> partial link text </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all anchor elements whose visible text partially matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> tag name </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements whose tag name matches the search value. </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> xpath </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> Returns all elements matching an XPath expression. The provided XPath expression must be applied to the server \"as is\"; if the expression is not relative to the element root, the server should not modify it. Consequently, an XPath query may return elements not contained in the root element's subtree. </td></tr> </tbody></table><p></p><p></p>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "JSON Parameters": {
+          "using": "{string} The locator strategy to use.",
+          "value": "{string} The The search target."
+        },
+        "returns": "{Array.<{ELEMENT:string}>} A list of WebElement JSON objects for the located elements.",
+        "returnsHTML": "<tt>{Array.&lt;{ELEMENT:string}&gt;}</tt> A list of WebElement JSON objects for the located elements.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM.",
+          "XPathLookupError": "If using XPath and the input expression is invalid."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/click": {
+      "POST": {
+        "comment": "Click on an element.",
+        "commentHTML": "Click on an element.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM.",
+          "ElementNotVisible": "If the referenced element is not visible on the page (either is hidden by CSS, has 0-width, or has 0-height)"
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/submit": {
+      "POST": {
+        "comment": "Submit a FORM element. The submit command may also be applied to any element that is a descendant of a FORM element.",
+        "commentHTML": "Submit a <tt>FORM</tt> element. The submit command may also be applied to any element that is a descendant of a <tt>FORM</tt> element.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/text": {
+      "GET": {
+        "comment": "Returns the visible text for the element.",
+        "commentHTML": "Returns the visible text for the element.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/value": {
+      "POST": {
+        "comment": "Send a sequence of key strokes to an element. Any UTF-8 character may be specified, however, if the server does not support native key events, it should simulate key strokes for a standard US keyboard layout. The Unicode Private Use Area code points, 0xE000-0xF8FF, are used to represent pressable, non-text  keys (see table below).    Key  Code   NULL  U+E000   Cancel  U+E001   Help  U+E002   Back space  U+E003   Tab  U+E004   Clear  U+E005   Return1  U+E006   Enter1  U+E007   Shift  U+E008   Control  U+E009   Alt  U+E00A   Pause   U+E00B   Escape  U+E00C    Key  Code   Space  U+E00D   Pageup  U+E00E   Pagedown  U+E00F   End  U+E010   Home  U+E011   Left arrow  U+E012   Up arrow  U+E013   Right arrow  U+E014   Down arrow  U+E015   Insert  U+E016   Delete  U+E017   Semicolon  U+E018   Equals  U+E019    Key  Code   Numpad 0  U+E01A   Numpad 1  U+E01B   Numpad 2  U+E01C   Numpad 3  U+E01D   Numpad 4  U+E01E   Numpad 5  U+E01F   Numpad 6  U+E020   Numpad 7  U+E021   Numpad 8  U+E022   Numpad 9  U+E023    Key  Code   Multiply  U+E024   Add  U+E025   Separator  U+E026   Subtract  U+E027   Decimal  U+E028   Divide  U+E029    Key  Code   F1  U+E031   F2  U+E032   F3  U+E033   F4  U+E034   F5  U+E035   F6  U+E036   F7  U+E037   F8  U+E038   F9  U+E039   F10  U+E03A   F11  U+E03B   F12  U+E03C   Command/Meta  U+E03D   1 The return key is not the same as the enter key. The server must process the key sequence as follows: Each key that appears on the keyboard without requiring modifiers are sent as a keydown followed by a key up. If the server does not support native events and must simulate key strokes with JavaScript, it must generate keydown, keypress, and keyup events, in that order. The keypress event should only be fired when the corresponding key is for a printable character. If a key requires a modifier key (e.g. \"!\" on a standard US keyboard), the sequence is: modifier down, key down, key up, modifier up, where key is the ideal unmodified key value (using the previous example, a \"1\"). Modifier keys (Ctrl, Shift, Alt, and Command/Meta) are assumed to be \"sticky\"; each modifier should be held down (e.g. only a keydown event) until either the modifier is encountered again in the sequence, or the NULL (U+E000) key is encountered. Each key sequence is terminated with an implicit NULL key. Subsequently, all depressed modifier keys must be released (with corresponding keyup events) at the end of the sequence.",
+        "commentHTML": "Send a sequence of key strokes to an element. <p></p><p>Any UTF-8 character may be specified, however, if the server does not support native key events, it should simulate key strokes for a standard US keyboard layout. The Unicode <a href=\"http://unicode.org/faq/casemap_charprop.html#8\" rel=\"nofollow\">Private Use Area</a> code points, 0xE000-0xF8FF, are used to represent pressable, non-text  keys (see table below). </p><p></p><table cellspacing=\"5\" cellpadding=\"5\"> <tbody><tr><td valign=\"top\"> <table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Key</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Code</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> NULL </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E000 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Cancel </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E001 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Help </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E002 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Back space </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E003 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Tab </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E004 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Clear </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E005 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Return<sup>1</sup> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E006 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Enter<sup>1</sup> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E007 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Shift </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E008 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Control </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E009 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Alt </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E00A </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Pause  </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E00B </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Escape </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E00C </td></tr> </tbody></table><p></p><p></p></td><td valign=\"top\"> <table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Key</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Code</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Space </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E00D </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Pageup </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E00E </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Pagedown </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E00F </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> End </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E010 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Home </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E011 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Left arrow </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E012 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Up arrow </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E013 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Right arrow </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E014 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Down arrow </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E015 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Insert </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E016 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Delete </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E017 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Semicolon </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E018 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Equals </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E019 </td></tr> </tbody></table><p></p><p></p></td><td valign=\"top\"> <table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Key</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Code</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 0 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E01A </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 1 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E01B </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 2 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E01C </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 3 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E01D </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 4 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E01E </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 5 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E01F </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 6 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E020 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 7 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E021 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 8 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E022 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Numpad 9 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E023 </td></tr> </tbody></table><p></p><p></p></td><td valign=\"top\"> <table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Key</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Code</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Multiply </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E024 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Add </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E025 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Separator </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E026 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Subtract </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E027 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Decimal </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E028 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Divide </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E029 </td></tr> </tbody></table><p></p><p></p></td><td valign=\"top\"> <table class=\"wikitable\"><tbody><tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Key</strong> </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> <strong>Code</strong> </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F1 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E031 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F2 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E032 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F3 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E033 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F4 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E034 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F5 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E035 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F6 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E036 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F7 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E037 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F8 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E038 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F9 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E039 </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F10 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E03A </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F11 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E03B </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> F12 </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E03C </td></tr> <tr><td style=\"border: 1px solid #ccc; padding: 5px;\"> Command/Meta </td><td style=\"border: 1px solid #ccc; padding: 5px;\"> U+E03D </td></tr> </tbody></table><p></p><p></p></td></tr> <tr><td colspan=\"5\"><sup>1</sup> The return key is <i>not the same</i> as the <a href=\"http://en.wikipedia.org/wiki/Enter_key\" rel=\"nofollow\">enter key</a>.</td></tr></tbody></table> <p></p><p>The server must process the key sequence as follows: </p><ul><li>Each key that appears on the keyboard without requiring modifiers are sent as a keydown followed by a key up. </li><li>If the server does not support native events and must simulate key strokes with JavaScript, it must generate keydown, keypress, and keyup events, in that order. The keypress event should only be fired when the corresponding key is for a printable character. </li><li>If a key requires a modifier key (e.g. \"!\" on a standard US keyboard), the sequence is: <var>modifier</var> down, <var>key</var> down, <var>key</var> up, <var>modifier</var> up, where <var>key</var> is the ideal unmodified key value (using the previous example, a \"1\"). </li><li>Modifier keys (Ctrl, Shift, Alt, and Command/Meta) are assumed to be \"sticky\"; each modifier should be held down (e.g. only a keydown event) until either the modifier is encountered again in the sequence, or the <tt>NULL</tt> (U+E000) key is encountered. </li><li>Each key sequence is terminated with an implicit <tt>NULL</tt> key. Subsequently, all depressed modifier keys must be released (with corresponding keyup events) at the end of the sequence. </li></ul>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "JSON Parameters": {
+          "value": "{Array.<string>} The sequence of keys to type. An array must be provided. The server should flatten the array items to a single string to be typed."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM.",
+          "ElementNotVisible": "If the referenced element is not visible on the page (either is hidden by CSS, has 0-width, or has 0-height)"
+        }
+      }
+    },
+    "/session/:sessionId/keys": {
+      "POST": {
+        "comment": "Send a sequence of key strokes to the active element. This command is similar to the send keys command in every aspect except the implicit termination: The modifiers are not released at the end of the call. Rather, the state of the modifier keys is kept between calls, so mouse interactions can be performed while modifier keys are depressed.",
+        "commentHTML": "Send a sequence of key strokes to the active element. This command is similar to the <a href=\"/p/selenium/wiki/JsonWireProtocol#/session/:sessionId/element/:id/value\">send keys</a> command in every aspect except the implicit termination: The modifiers are <strong>not</strong> released at the end of the call. Rather, the state of the modifier keys is kept between calls, so mouse interactions can be performed while modifier keys are depressed.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "value": "{Array.<string>} The keys sequence to be sent. The sequence is defined in thesend keys command."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/name": {
+      "GET": {
+        "comment": "Query for an element's tag name.",
+        "commentHTML": "Query for an element's tag name.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "returns": "{string} The element's tag name, as a lowercase string.",
+        "returnsHTML": "<tt>{string}</tt> The element's tag name, as a lowercase string.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/clear": {
+      "POST": {
+        "comment": "Clear a TEXTAREA or text INPUT element's value.",
+        "commentHTML": "Clear a <tt>TEXTAREA</tt> or <tt>text INPUT</tt> element's value.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM.",
+          "ElementNotVisible": "If the referenced element is not visible on the page (either is hidden by CSS, has 0-width, or has 0-height)",
+          "InvalidElementState": "If the referenced element is disabled."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/selected": {
+      "GET": {
+        "comment": "Determine if an OPTION element, or an INPUT element of type checkbox or radiobutton is currently selected.",
+        "commentHTML": "Determine if an <tt>OPTION</tt> element, or an <tt>INPUT</tt> element of type <tt>checkbox</tt> or <tt>radiobutton</tt> is currently selected.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "returns": "{boolean} Whether the element is selected.",
+        "returnsHTML": "<tt>{boolean}</tt> Whether the element is selected.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/enabled": {
+      "GET": {
+        "comment": "Determine if an element is currently enabled.",
+        "commentHTML": "Determine if an element is currently enabled.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "returns": "{boolean} Whether the element is enabled.",
+        "returnsHTML": "<tt>{boolean}</tt> Whether the element is enabled.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/attribute/:name": {
+      "GET": {
+        "comment": "Get the value of an element's attribute.",
+        "commentHTML": "Get the value of an element's attribute.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "returns": "{string|null} The value of the attribute, or null if it is not set on the element.",
+        "returnsHTML": "<tt>{string|null}</tt> The value of the attribute, or null if it is not set on the element.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/equals/:other": {
+      "GET": {
+        "comment": "Test if two element IDs refer to the same DOM element.",
+        "commentHTML": "Test if two element IDs refer to the same DOM element.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to.",
+          ":other": "ID of the element to compare against."
+        },
+        "returns": "{boolean} Whether the two IDs refer to the same element.",
+        "returnsHTML": "<tt>{boolean}</tt> Whether the two IDs refer to the same element.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If either the element refered to by :id or :other is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/displayed": {
+      "GET": {
+        "comment": "Determine if an element is currently displayed.",
+        "commentHTML": "Determine if an element is currently displayed.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "returns": "{boolean} Whether the element is displayed.",
+        "returnsHTML": "<tt>{boolean}</tt> Whether the element is displayed.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/location": {
+      "GET": {
+        "comment": "Determine an element's location on the page. The point (0, 0) refers to the upper-left corner of the page. The element's coordinates are returned as a JSON object with x and y properties.",
+        "commentHTML": "Determine an element's location on the page. The point <tt>(0, 0)</tt> refers to the upper-left corner of the page. The element's coordinates are returned as a JSON object with <tt>x</tt> and <tt>y</tt> properties.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "returns": "{x:number, y:number} The X and Y coordinates for the element on the page.",
+        "returnsHTML": "<tt>{x:number, y:number}</tt> The X and Y coordinates for the element on the page.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/location_in_view": {
+      "GET": {
+        "comment": "Determine an element's location on the screen once it has been scrolled into view. Note: This is considered an internal command and should only be used to determine an element's location for correctly generating native events.",
+        "commentHTML": "Determine an element's location on the screen once it has been scrolled into view. <p></p><p><strong>Note:</strong> This is considered an internal command and should <strong>only</strong> be used to determine an element's location for correctly generating native events.</p>",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "returns": "{x:number, y:number} The X and Y coordinates for the element.",
+        "returnsHTML": "<tt>{x:number, y:number}</tt> The X and Y coordinates for the element.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/size": {
+      "GET": {
+        "comment": "Determine an element's size in pixels. The size will be returned as a JSON object  with width and height properties.",
+        "commentHTML": "Determine an element's size in pixels. The size will be returned as a JSON object  with <tt>width</tt> and <tt>height</tt> properties.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "returns": "{width:number, height:number} The width and height of the element, in pixels.",
+        "returnsHTML": "<tt>{width:number, height:number}</tt> The width and height of the element, in pixels.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/element/:id/css/:propertyName": {
+      "GET": {
+        "comment": "Query the value of an element's computed CSS property. The CSS property to query should be specified using the CSS property name, not the JavaScript property name (e.g. background-color instead of backgroundColor).",
+        "commentHTML": "Query the value of an element's computed CSS property. The CSS property to query should be specified using the CSS property name, <strong>not</strong> the JavaScript property name (e.g. <tt>background-color</tt> instead of <tt>backgroundColor</tt>).",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":id": "ID of the element to route the command to."
+        },
+        "returns": "{string} The value of the specified CSS property.",
+        "returnsHTML": "<tt>{string}</tt> The value of the specified CSS property.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed.",
+          "StaleElementReference": "If the element referenced by :id is no longer attached to the page's DOM."
+        }
+      }
+    },
+    "/session/:sessionId/orientation": {
+      "GET": {
+        "comment": "Get the current browser orientation. The server should return a valid orientation value as defined in ScreenOrientation: {LANDSCAPE|PORTRAIT}.",
+        "commentHTML": "Get the current browser orientation. The server should return a valid orientation value as defined in <a href=\"http://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/ScreenOrientation.html\" rel=\"nofollow\">ScreenOrientation</a>: <tt>{LANDSCAPE|PORTRAIT}</tt>.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{string} The current browser orientation corresponding to a value defined in ScreenOrientation: {LANDSCAPE|PORTRAIT}.",
+        "returnsHTML": "<tt>{string}</tt> The current browser orientation corresponding to a value defined in <a href=\"http://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/ScreenOrientation.html\" rel=\"nofollow\">ScreenOrientation</a>: <tt>{LANDSCAPE|PORTRAIT}</tt>.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      },
+      "POST": {
+        "comment": "Set the browser orientation. The orientation should be specified as defined in ScreenOrientation: {LANDSCAPE|PORTRAIT}.",
+        "commentHTML": "Set the browser orientation. The orientation should be specified as defined in <a href=\"http://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/ScreenOrientation.html\" rel=\"nofollow\">ScreenOrientation</a>: <tt>{LANDSCAPE|PORTRAIT}</tt>.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "orientation": "{string} The new browser orientation as defined in ScreenOrientation: {LANDSCAPE|PORTRAIT}."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/alert_text": {
+      "GET": {
+        "comment": "Gets the text of the currently displayed JavaScript alert(), confirm(), or prompt() dialog.",
+        "commentHTML": "Gets the text of the currently displayed JavaScript <tt>alert()</tt>, <tt>confirm()</tt>, or <tt>prompt()</tt> dialog.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{string} The text of the currently displayed alert.",
+        "returnsHTML": "<tt>{string}</tt> The text of the currently displayed alert.",
+        "Potential Errors": {
+          "NoAlertPresent": "If there is no alert displayed."
+        }
+      },
+      "POST": {
+        "comment": "Sends keystrokes to a JavaScript prompt() dialog.",
+        "commentHTML": "Sends keystrokes to a JavaScript <tt>prompt()</tt> dialog.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "text": "{string} Keystrokes to send to the prompt() dialog."
+        },
+        "Potential Errors": {
+          "NoAlertPresent": "If there is no alert displayed."
+        }
+      }
+    },
+    "/session/:sessionId/accept_alert": {
+      "POST": {
+        "comment": "Accepts the currently displayed alert dialog. Usually, this is equivalent to clicking on the 'OK' button in the dialog.",
+        "commentHTML": "Accepts the currently displayed alert dialog. Usually, this is equivalent to clicking on the 'OK' button in the dialog.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "NoAlertPresent": "If there is no alert displayed."
+        }
+      }
+    },
+    "/session/:sessionId/dismiss_alert": {
+      "POST": {
+        "comment": "Dismisses the currently displayed alert dialog. For confirm() and prompt() dialogs, this is equivalent to clicking the 'Cancel' button. For alert() dialogs, this is equivalent to clicking the 'OK' button.",
+        "commentHTML": "Dismisses the currently displayed alert dialog. For <tt>confirm()</tt> and <tt>prompt()</tt> dialogs, this is equivalent to clicking the 'Cancel' button. For <tt>alert()</tt> dialogs, this is equivalent to clicking the 'OK' button.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "NoAlertPresent": "If there is no alert displayed."
+        }
+      }
+    },
+    "/session/:sessionId/moveto": {
+      "POST": {
+        "comment": "Move the mouse by an offset of the specificed element. If no element is specified, the move is relative to the current mouse cursor. If an element is provided but no offset, the mouse will be moved to the center of the element. If the element is not visible, it will be scrolled into view.",
+        "commentHTML": "Move the mouse by an offset of the specificed element. If no element is specified, the move is relative to the current mouse cursor. If an element is provided but no offset, the mouse will be moved to the center of the element. If the element is not visible, it will be scrolled into view.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "element": "{string} Opaque ID assigned to the element to move to, as described in the WebElement JSON Object. If not specified or is null, the offset is relative to current position of the mouse.",
+          "xoffset": "{number} X offset to move to, relative to the top-left corner of the element. If not specified, the mouse will move to the middle of the element.",
+          "yoffset": "{number} Y offset to move to, relative to the top-left corner of the element. If not specified, the mouse will move to the middle of the element."
+        }
+      }
+    },
+    "/session/:sessionId/click": {
+      "POST": {
+        "comment": "Click any mouse button (at the coordinates set by the last moveto command). Note that calling this command after calling buttondown and before calling button up (or any out-of-order interactions sequence) will yield undefined behaviour).",
+        "commentHTML": "Click any mouse button (at the coordinates set by the last moveto command). Note that calling this command after calling buttondown and before calling button up (or any out-of-order interactions sequence) will yield undefined behaviour).",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "button": "{number} Which button, enum: {LEFT = 0, MIDDLE = 1 , RIGHT = 2}. Defaults to the left mouse button if not specified."
+        }
+      }
+    },
+    "/session/:sessionId/buttondown": {
+      "POST": {
+        "comment": "Click and hold the left mouse button (at the coordinates set by the last moveto command). Note that the next mouse-related command that should follow is buttonup . Any other mouse command (such as click or another call to buttondown) will yield undefined behaviour.",
+        "commentHTML": "Click and hold the left mouse button (at the coordinates set by the last moveto command). Note that the next mouse-related command that should follow is buttonup . Any other mouse command (such as click or another call to buttondown) will yield undefined behaviour.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "button": "{number} Which button, enum: {LEFT = 0, MIDDLE = 1 , RIGHT = 2}. Defaults to the left mouse button if not specified."
+        }
+      }
+    },
+    "/session/:sessionId/buttonup": {
+      "POST": {
+        "comment": "Releases the mouse button previously held (where the mouse is currently at). Must be called once for every buttondown command issued. See the note in click and buttondown about implications of out-of-order commands.",
+        "commentHTML": "Releases the mouse button previously held (where the mouse is currently at). Must be called once for every buttondown command issued. See the note in click and buttondown about implications of out-of-order commands.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "button": "{number} Which button, enum: {LEFT = 0, MIDDLE = 1 , RIGHT = 2}. Defaults to the left mouse button if not specified."
+        }
+      }
+    },
+    "/session/:sessionId/doubleclick": {
+      "POST": {
+        "comment": "Double-clicks at the current mouse coordinates (set by moveto).",
+        "commentHTML": "Double-clicks at the current mouse coordinates (set by moveto).",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        }
+      }
+    },
+    "/session/:sessionId/touch/click": {
+      "POST": {
+        "comment": "Single tap on the touch enabled device.",
+        "commentHTML": "Single tap on the touch enabled device.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "element": "{string} ID of the element to single tap on."
+        }
+      }
+    },
+    "/session/:sessionId/touch/down": {
+      "POST": {
+        "comment": "Finger down on the screen.",
+        "commentHTML": "Finger down on the screen.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "x": "{number} X coordinate on the screen.",
+          "y": "{number} Y coordinate on the screen."
+        }
+      }
+    },
+    "/session/:sessionId/touch/up": {
+      "POST": {
+        "comment": "Finger up on the screen.",
+        "commentHTML": "Finger up on the screen.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "x": "{number} X coordinate on the screen.",
+          "y": "{number} Y coordinate on the screen."
+        }
+      }
+    },
+    "session/:sessionId/touch/move": {
+      "POST": {
+        "comment": "Finger move on the screen.",
+        "commentHTML": "Finger move on the screen.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "x": "{number} X coordinate on the screen.",
+          "y": "{number} Y coordinate on the screen."
+        }
+      }
+    },
+    "session/:sessionId/touch/scroll": {
+      "POST": {
+        "comment": "Scroll on the touch screen using finger based motion events. Use this command if you don't care where the scroll starts on the screen.",
+        "commentHTML": "Scroll on the touch screen using finger based motion events. Use this command if you don't care where the scroll starts on the screen.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "xoffset": "{number} The x offset in pixels to scrollby.",
+          "yoffset": "{number} The y offset in pixels to scrollby."
+        }
+      }
+    },
+    "session/:sessionId/touch/doubleclick": {
+      "POST": {
+        "comment": "Double tap on the touch screen using finger motion events.",
+        "commentHTML": "Double tap on the touch screen using finger motion events.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "element": "{string} ID of the element to double tap on."
+        }
+      }
+    },
+    "session/:sessionId/touch/longclick": {
+      "POST": {
+        "comment": "Long press on the touch screen using finger motion events.",
+        "commentHTML": "Long press on the touch screen using finger motion events.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "element": "{string} ID of the element to long press on."
+        }
+      }
+    },
+    "session/:sessionId/touch/flick": {
+      "POST": {
+        "comment": "Flick on the touch screen using finger motion events. Use this flick command if you don't care where the flick starts on the screen.",
+        "commentHTML": "Flick on the touch screen using finger motion events. Use this flick command if you don't care where the flick starts on the screen.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "xspeed": "{number} The x speed in pixels per second.",
+          "yspeed": "{number} The y speed in pixels per second."
+        }
+      }
+    },
+    "/session/:sessionId/location": {
+      "GET": {
+        "comment": "Get the current geo location.",
+        "commentHTML": "Get the current geo location.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{latitude: number, longitude: number, altitude: number} The current geo location.",
+        "returnsHTML": "<tt>{latitude: number, longitude: number, altitude: number}</tt> The current geo location."
+      },
+      "POST": {
+        "comment": "Set the current geo location.",
+        "commentHTML": "Set the current geo location.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "location": "{latitude: number, longitude: number, altitude: number} The new location."
+        }
+      }
+    },
+    "/session/:sessionId/local_storage": {
+      "GET": {
+        "comment": "Get all keys of the storage.",
+        "commentHTML": "Get all keys of the storage.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{Array.<string>} The list of keys.",
+        "returnsHTML": "<tt>{Array.&lt;string&gt;}</tt> The list of keys.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      },
+      "POST": {
+        "comment": "Set the storage item for the given key.",
+        "commentHTML": "Set the storage item for the given key.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "key": "{string} The key to set.",
+          "value": "{string} The value to set."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      },
+      "DELETE": {
+        "comment": "Clear the storage.",
+        "commentHTML": "Clear the storage.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/local_storage/key/:key": {
+      "GET": {
+        "comment": "Get the storage item for the given key.",
+        "commentHTML": "Get the storage item for the given key.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":key": "The key to get."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      },
+      "DELETE": {
+        "comment": "Remove the storage item for the given key.",
+        "commentHTML": "Remove the storage item for the given key.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":key": "The key to remove."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/local_storage/size": {
+      "GET": {
+        "comment": "Get the number of items in the storage.",
+        "commentHTML": "Get the number of items in the storage.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{number} The number of items in the storage.",
+        "returnsHTML": "<tt>{number}</tt> The number of items in the storage.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/session_storage": {
+      "GET": {
+        "comment": "Get all keys of the storage.",
+        "commentHTML": "Get all keys of the storage.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{Array.<string>} The list of keys.",
+        "returnsHTML": "<tt>{Array.&lt;string&gt;}</tt> The list of keys.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      },
+      "POST": {
+        "comment": "Set the storage item for the given key.",
+        "commentHTML": "Set the storage item for the given key.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "key": "{string} The key to set.",
+          "value": "{string} The value to set."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      },
+      "DELETE": {
+        "comment": "Clear the storage.",
+        "commentHTML": "Clear the storage.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/session_storage/key/:key": {
+      "GET": {
+        "comment": "Get the storage item for the given key.",
+        "commentHTML": "Get the storage item for the given key.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":key": "The key to get."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      },
+      "DELETE": {
+        "comment": "Remove the storage item for the given key.",
+        "commentHTML": "Remove the storage item for the given key.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to.",
+          ":key": "The key to remove."
+        },
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/session_storage/size": {
+      "GET": {
+        "comment": "Get the number of items in the storage.",
+        "commentHTML": "Get the number of items in the storage.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{number} The number of items in the storage.",
+        "returnsHTML": "<tt>{number}</tt> The number of items in the storage.",
+        "Potential Errors": {
+          "NoSuchWindow": "If the currently selected window has been closed."
+        }
+      }
+    },
+    "/session/:sessionId/log": {
+      "POST": {
+        "comment": "Get the log for a given log type. Log buffer is reset after each request.",
+        "commentHTML": "Get the log for a given log type. Log buffer is reset after each request.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "JSON Parameters": {
+          "type": "{string} The log type. This must be provided."
+        },
+        "returns": "{Array.<object>} The list of log entries.",
+        "returnsHTML": "<tt>{Array.&lt;object&gt;}</tt> The list of <a href=\"#Log_Entry_JSON_Object\">log entries</a>."
+      }
+    },
+    "/session/:sessionId/log/types": {
+      "GET": {
+        "comment": "Get available log types.",
+        "commentHTML": "Get available log types.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{Array.<string>} The list of available log types.",
+        "returnsHTML": "<tt>{Array.&lt;string&gt;}</tt> The list of available <a href=\"#Log_Type\">log types</a>."
+      }
+    },
+    "/session/:sessionId/application_cache/status": {
+      "GET": {
+        "comment": "Get the status of the html5 application cache.",
+        "commentHTML": "Get the status of the html5 application cache.",
+        "URL Parameters": {
+          ":sessionId": "ID of the session to route the command to."
+        },
+        "returns": "{number} Status code for application cache: {UNCACHED = 0, IDLE = 1, CHECKING = 2, DOWNLOADING = 3, UPDATE_READY = 4, OBSOLETE = 5}",
+        "returnsHTML": "<tt>{number}</tt> Status code for application cache: {UNCACHED = 0, IDLE = 1, CHECKING = 2, DOWNLOADING = 3, UPDATE_READY = 4, OBSOLETE = 5}"
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "url": "https://code.google.com/p/selenium/wiki/JsonWireProtocol",
+    "version": "0.0.0",
+    "date": "2015-04-30T18:43:37.108Z"
+  },
+  "data": {
+    "browserName": {
+      "type": "string",
+      "description": "The name of the browser being used; should be one of {chrome|firefox|htmlunit|internet explorer|iphone}."
+    },
+    "version": {
+      "type": "string",
+      "description": "The browser version, or the empty string if unknown."
+    },
+    "platform": {
+      "type": "string",
+      "description": "A key specifying which platform the browser is running on. This value should be one of {WINDOWS|XP|VISTA|MAC|LINUX|UNIX}. When requesting a new session, the client may specify ANY to indicate any available platform may be used."
+    },
+    "javascriptEnabled": {
+      "type": "boolean",
+      "description": "Whether the session supports executing user supplied JavaScript in the context of the current page."
+    },
+    "takesScreenshot": {
+      "type": "boolean",
+      "description": "Whether the session supports taking screenshots of the current page."
+    },
+    "handlesAlerts": {
+      "type": "boolean",
+      "description": "Whether the session can interact with modal popups, such as window.alert and window.confirm."
+    },
+    "databaseEnabled": {
+      "type": "boolean",
+      "description": "Whether the session can interact database storage."
+    },
+    "locationContextEnabled": {
+      "type": "boolean",
+      "description": "Whether the session can set and query the browser's location context."
+    },
+    "applicationCacheEnabled": {
+      "type": "boolean",
+      "description": "Whether the session can interact with the application cache."
+    },
+    "browserConnectionEnabled": {
+      "type": "boolean",
+      "description": "Whether the session can query for the browser's connectivity and disable it if desired."
+    },
+    "cssSelectorsEnabled": {
+      "type": "boolean",
+      "description": "Whether the session supports CSS selectors when searching for elements."
+    },
+    "webStorageEnabled": {
+      "type": "boolean",
+      "description": "Whether the session supports interactions with storage objects."
+    },
+    "rotatable": {
+      "type": "boolean",
+      "description": "Whether the session can rotate the current page's current layout between portrait and landscape orientations (only applies to mobile platforms)."
+    },
+    "acceptSslCerts": {
+      "type": "boolean",
+      "description": "Whether the session should accept all SSL certs by default."
+    },
+    "nativeEvents": {
+      "type": "boolean",
+      "description": "Whether the session is capable of generating native events when simulating user input."
+    },
+    "proxy": {
+      "type": "proxy object",
+      "description": "Details of any proxy to use. If no proxy is specified, whatever the system's current or default state is used. The format is specified under Proxy JSON Object."
+    }
+  }
+}

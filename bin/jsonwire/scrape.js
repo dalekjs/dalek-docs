@@ -1,3 +1,4 @@
+#!/usr/bin/env node --harmony
 'use strict';
 
 // JsonWireProtocol is specified in a wiki:
@@ -11,12 +12,13 @@
 
 var fs = require('fs');
 var path = require('path');
-var browserScrapeCommands = require('./jsonwire/browser.commands.js');
-var browserScrapeResponseCodes = require('./jsonwire/browser.response-codes.js');
-var browserScrapeCapabilities = require('./jsonwire/browser.capabilities.js');
+var mkdirp = require('mkdirp');
+var browserScrapeCommands = require('./browser.commands.js');
+var browserScrapeResponseCodes = require('./browser.response-codes.js');
+var browserScrapeCapabilities = require('./browser.capabilities.js');
 
+var dataPath = path.resolve(__dirname, '../../data/jsonwire/0.0.0');
 var wd;
-
 // load the driver
 var Driver = require('dalek-driver-phantomjs');
 // initialize the driver
@@ -24,7 +26,26 @@ var driver = new Driver({
   host: '127.0.1.1'
 });
 
-var stop = function stop() {
+function start() {
+  // start the driver
+  driver.start(
+    // callback invoked when driver is started
+    function startCb(options) {
+      // load, connect and initialize WD.js
+      wd = require('wd').promiseChainRemote(options.wd);
+      wd.init(options.wd).then(
+        scrape,
+        console.error.bind(console)
+      );
+    },
+    // callback invoked when driver could not start
+    console.error.bind(console),
+    // callback invoked when driver crashed after successful start
+    console.error.bind(console)
+  );
+}
+
+function stop() {
   // stop the client
   wd.quit().then(function quitCb() {
     // then stop the driver
@@ -32,7 +53,7 @@ var stop = function stop() {
       // we're done
     });
   });
-};
+}
 
 var success = function success(data) {
   console.log('success', JSON.stringify(data, null, 2));
@@ -48,19 +69,18 @@ function scrape() {
 
     .execute(browserScrapeCommands, [])
     .then(function(data) {
-      fs.writeFile(path.resolve(__dirname, '../data/jsonwire/0.0.0/commands.json'), data);
+      fs.writeFile(path.join(dataPath, 'commands.json'), data);
     }, error)
 
     .execute(browserScrapeResponseCodes, [])
     .then(function(data) {
-      fs.writeFile(path.resolve(__dirname, '../data/jsonwire/0.0.0/response-codes.json'), data);
+      fs.writeFile(path.join(dataPath, 'response-codes.json'), data);
     }, error)
 
     .execute(browserScrapeCapabilities, [])
     .then(function(data) {
-      fs.writeFile(path.resolve(__dirname, '../data/jsonwire/0.0.0/capabilties.json'), data);
+      fs.writeFile(path.join(dataPath, 'capabilties.json'), data);
     }, error)
-
 
     // stop WD and the driver
     .then(stop)
@@ -73,19 +93,10 @@ function scrape() {
     .done();
 };
 
-// start the driver
-driver.start(
-  // callback invoked when driver is started
-  function startCb(options) {
-    // load, connect and initialize WD.js
-    wd = require('wd').promiseChainRemote(options.wd);
-    wd.init(options.wd).then(
-      scrape,
-      console.error.bind(console)
-    );
-  },
-  // callback invoked when driver could not start
-  console.error.bind(console),
-  // callback invoked when driver crashed after successful start
-  console.error.bind(console)
-);
+mkdirp(dataPath, function(error) {
+  if (error) {
+    console.log(error);
+    return;
+  }
+  start();
+});

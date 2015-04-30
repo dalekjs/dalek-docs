@@ -1,9 +1,9 @@
 #!/usr/bin/env node --harmony
 'use strict';
 
-// JsonWireProtocol is specified in a wiki:
-//  https://code.google.com/p/selenium/wiki/JsonWireProtocol
-//  https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol
+// W3C WebDriver is specified on github
+//  http://www.w3.org/TR/webdriver/
+//  https://github.com/w3c/webdriver
 
 var fs = require('fs');
 var path = require('path');
@@ -12,7 +12,7 @@ var browserScrapeCommands = require('./browser.commands.js');
 var browserScrapeResponseCodes = require('./browser.response-codes.js');
 var browserScrapeCapabilities = require('./browser.capabilities.js');
 
-var dataPath = path.resolve(__dirname, '../../data/jsonwire/0.0.0');
+var dataPath = path.resolve(__dirname, '../../data/webdriver/0.0.0');
 var wd;
 // load the driver
 var Driver = require('dalek-driver-phantomjs');
@@ -60,7 +60,7 @@ var error = function error(data) {
 };
 
 function scrape() {
-  wd.get('https://code.google.com/p/selenium/wiki/JsonWireProtocol')
+  wd.get('https://w3c.github.io/webdriver/webdriver-spec.html')
 
     .execute(browserScrapeCommands, [])
     .then(function(data) {

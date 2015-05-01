@@ -20,7 +20,7 @@ module.exports = function browserScrapeDesiredCapabilities() {
       var key = row.children[0].textContent.trim();
       map[key] = {
         type: row.children[1].textContent.trim(),
-        description: row.children[2].textContent.trim(),
+        description: row.children[2].textContent.replace(/[\s\r\n]{2,}/g, ' ').trim(),
       };
     });
 

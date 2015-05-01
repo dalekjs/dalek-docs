@@ -25,7 +25,7 @@ module.exports = function browserScrapeCapabilities() {
         return;
       }
 
-      map[key] = cells[index].textContent.trim();
+      map[key] = cells[index].textContent.replace(/[\s\r\n]{2,}/g, ' ').trim();
     });
 
     mapping.data[cells[KEY].textContent.trim()] = map;

@@ -21,7 +21,7 @@ module.exports = function browserScrapeCommands() {
     var content = headline.parentElement.nextElementSibling.firstElementChild;
     [].forEach.call(content.children, function(element) {
       if (!element.firstElementChild || element.firstElementChild.nodeName.toLowerCase() !== 'dl') {
-        data.comment = element.textContent.trim();
+        data.comment = element.textContent.replace(/[\s\r\n]{2,}/g, ' ').trim();
         data.commentHTML = element.innerHTML.trim();
         return;
       }
@@ -30,7 +30,7 @@ module.exports = function browserScrapeCommands() {
 
       if (type === 'Returns') {
         var dd = element.firstElementChild.querySelector('dd');
-        data.returns = dd.textContent.trim();
+        data.returns = dd.textContent.replace(/[\s\r\n]{2,}/g, ' ').trim();
         data.returnsHTML = dd.innerHTML.trim();
         return;
       }
@@ -39,7 +39,7 @@ module.exports = function browserScrapeCommands() {
       [].forEach.call(element.firstElementChild.querySelectorAll('dd'), function(entry) {
         var keyElement = entry.querySelector('tt');
         var key = keyElement.textContent.trim();
-        map[key] = entry.textContent.replace(/^.+- /, '').trim();
+        map[key] = entry.textContent.replace(/^.+- /, '').replace(/[\s\r\n]{2,}/g, ' ').trim();
       });
 
       data[type] = map;

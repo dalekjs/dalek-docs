@@ -11,6 +11,7 @@ var mkdirp = require('mkdirp');
 var browserScrapeCommands = require('./browser.commands.js');
 var browserScrapeResponseCodes = require('./browser.response-codes.js');
 var browserScrapeCapabilities = require('./browser.capabilities.js');
+var browserScrapeDesiredCapabilities = require('./browser.desired-capabilities.js');
 
 var dataPath = path.resolve(__dirname, '../../data/jsonwire/0.0.0');
 var wd;
@@ -75,6 +76,13 @@ function scrape() {
     .execute(browserScrapeCapabilities, [])
     .then(function(data) {
       fs.writeFile(path.join(dataPath, 'capabilties.json'), data);
+    }, error)
+
+    .get('https://code.google.com/p/selenium/wiki/DesiredCapabilities')
+
+    .execute(browserScrapeDesiredCapabilities, [])
+    .then(function(data) {
+      fs.writeFile(path.join(dataPath, 'desired-capabilties.json'), data);
     }, error)
 
     // stop WD and the driver

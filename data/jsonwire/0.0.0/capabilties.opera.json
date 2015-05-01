@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "url": "https://code.google.com/p/selenium/wiki/OperaDriver",
+    "version": "0.0.0",
+    "date": "2015-05-01T15:48:38.157Z"
+  },
+  "data": {
+    "opera.logging.level": {
+      "type": "String/Level",
+      "default": "Level.INFO",
+      "description": "How verbose the logging should be. Available levels are: SEVERE (highest value), WARNING, INFO, CONFIG, FINE, FINER, FINEST (lowest value), ALL."
+    },
+    "opera.logging.file": {
+      "type": "String",
+      "default": "null",
+      "description": "Where to send the output of the logging. Default is to not write to file."
+    },
+    "opera.binary": {
+      "type": "String",
+      "default": "system Opera binary",
+      "description": "Absolute path to the Opera binary to use. If not specified, OperaDriver will guess the path to your Opera installation."
+    },
+    "opera.arguments*": {
+      "type": "String",
+      "default": "null",
+      "description": "Arguments to pass on to Opera, separated by spaces. See opera -help for available command-line arguments."
+    },
+    "opera.host": {
+      "type": "String",
+      "default": "\"127.0.0.1\"",
+      "description": "The host Opera should connect to. Unless your starting Opera on another machine you won't need this."
+    },
+    "opera.port": {
+      "type": "Integer",
+      "default": "random port",
+      "description": "The port Opera should connect to. 0 = Random port, -1 = Opera default (port 7001) (for use with Opera < 12)."
+    },
+    "opera.launcher": {
+      "type": "String",
+      "default": "~/.launcher/LAUNCHER",
+      "description": "Absolute path to the launcher binary to use. The launcher is a gateway between OperaDriver and the Opera browser, and is being used for controlling and monitoring the binary, and taking external screenshots. If left blank, OperaDriver will use the launcher supplied with the package."
+    },
+    "opera.profile": {
+      "type": "String/OperaProfile",
+      "default": "OperaProfile",
+      "description": "Directory string for the Opera profile to use. If left empty, a new random profile will be used. If \"\", an empty string, then the default autotest directory is used."
+    },
+    "opera.idle": {
+      "type": "Boolean",
+      "default": "false",
+      "description": "Whether to use Opera's alternative implicit wait imlpementation. It will use an in-browser heuristic to guess when a page has finished loading, allowing us to determine with great accuracy whether there are any planned events in the document. This functionality is useful for very simple test cases, but not designed for real-world testing. It is disable by default."
+    },
+    "opera.display": {
+      "type": "Integer",
+      "default": "null",
+      "description": "The X display to use, typically if you want to use Xvfb or tightvncserver. (Only works on UNIX-like OSes.)"
+    },
+    "opera.autostart": {
+      "type": "Boolean",
+      "default": "true",
+      "description": "Whether to auto-start the Opera binary. If false, OperaDriver will wait for a connection from the browser. Go to \"opera:debug\", enter the correct port number and hit \"Connect\" to connect manually."
+    },
+    "opera.no_restart": {
+      "type": "Boolean",
+      "default": "false",
+      "description": "Whether to restart."
+    },
+    "opera.no_quit": {
+      "type": "Boolean",
+      "default": "false",
+      "description": "Whether to quit Opera when OperaDriver is shut down. If enabled, it will keep the browser running after the driver is shut down."
+    },
+    "opera.product": {
+      "type": "String",
+      "default": "null",
+      "description": "The product we are using, for example \"desktop\", \"core-desktop\" or \"sdk\". See OperaProduct for all available values."
+    }
+  }
+}

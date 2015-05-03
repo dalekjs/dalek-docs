@@ -1,563 +1,1276 @@
 {
-  "meta": {
-    "url": "https://code.google.com/p/selenium/wiki/DesiredCapabilities",
-    "version": "0.0.0",
-    "date": "2015-05-01T15:48:37.334Z"
+  "browserName": {
+    "type": "string",
+    "description": "The name of the browser being used; should be one of [ENUM-0].",
+    "hierarchy": [
+      "Introduction",
+      null,
+      "Used by the selenium server for browser selection"
+    ],
+    "enums": [
+      [
+        "android",
+        "chrome",
+        "firefox",
+        "htmlunit",
+        "internet explorer",
+        "iPhone",
+        "iPad",
+        "opera",
+        "safari"
+      ]
+    ],
+    "targets": [
+      "all"
+    ]
   },
-  "data": [
+  "version": {
+    "type": "string",
+    "description": "The browser version, or the empty string if unknown.",
+    "hierarchy": [
+      "Introduction",
+      null,
+      "Used by the selenium server for browser selection"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "platform": {
+    "type": "string",
+    "description": "A key specifying which platform the browser should be running on. This value should be one of [ENUM-0]. When requesting a new session, the client may specify ANY to indicate any available platform may be used. For more information see [GridPlatforms]",
+    "hierarchy": [
+      "Introduction",
+      null,
+      "Used by the selenium server for browser selection"
+    ],
+    "enums": [
+      [
+        "WINDOWS",
+        "XP",
+        "VISTA",
+        "MAC",
+        "LINUX",
+        "UNIX",
+        "ANDROID"
+      ]
+    ],
+    "targets": [
+      "all"
+    ]
+  },
+  "takesScreenshot": {
+    "type": "boolean",
+    "description": "Whether the session supports taking screenshots of the current page.",
+    "hierarchy": [
+      "Introduction",
+      "Read-only capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "handlesAlerts": {
+    "type": "boolean",
+    "description": "Whether the session can interact with modal popups, such as window.alert and window.confirm.",
+    "hierarchy": [
+      "Introduction",
+      "Read-only capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "cssSelectorsEnabled": {
+    "type": "boolean",
+    "description": "Whether the session supports CSS selectors when searching for elements.",
+    "hierarchy": [
+      "Introduction",
+      "Read-only capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "javascriptEnabled": {
+    "type": "boolean",
+    "description": "Whether the session supports executing user supplied JavaScript in the context of the current page (only on HTMLUnitDriver).",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "databaseEnabled": {
+    "type": "boolean",
+    "description": "Whether the session can interact with database storage.",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "locationContextEnabled": {
+    "type": "boolean",
+    "description": "Whether the session can set and query the browser's location context.",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "applicationCacheEnabled": {
+    "type": "boolean",
+    "description": "Whether the session can interact with the application cache.",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "browserConnectionEnabled": {
+    "type": "boolean",
+    "description": "Whether the session can query for the browser's connectivity and disable it if desired.",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "webStorageEnabled": {
+    "type": "boolean",
+    "description": "Whether the session supports interactions with storage objects.",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "acceptSslCerts": {
+    "type": "boolean",
+    "description": "Whether the session should accept all SSL certs by default.",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "rotatable": {
+    "type": "boolean",
+    "description": "Whether the session can rotate the current page's current layout between portrait and landscape orientations (only applies to mobile platforms).",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "nativeEvents": {
+    "type": "boolean",
+    "description": "Whether the session is capable of generating native events when simulating user input.",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "proxy": {
+    "type": "proxy object",
+    "description": "Details of any proxy to use. If no proxy is specified, whatever the system's current or default state is used. The format is specified under Proxy JSON Object.",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "unexpectedAlertBehaviour": {
+    "type": "string",
+    "description": "What the browser should do with an unhandled alert before throwing out the UnhandledAlertException. Possible values are \"accept\", \"dismiss\" and \"ignore\"",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "elementScrollBehavior": {
+    "type": "integer",
+    "description": "Allows the user to specify whether elements are scrolled into the viewport for interaction to align with the top (0) or bottom (1) of the viewport. The default value is to align with the top of the viewport. Supported in IE and Firefox (since 2.36)",
+    "hierarchy": [
+      "Introduction",
+      "Read-write capabilities"
+    ],
+    "enums": [],
+    "targets": [
+      "all"
+    ]
+  },
+  "webdriver.remote.sessionid": {
+    "type": "string",
+    "description": "WebDriver session ID for the session. Readonly and only returned if the server implements a server-side webdriver-backed selenium.",
+    "hierarchy": [
+      "RemoteWebDriver specific"
+    ],
+    "enums": [],
+    "targets": [
+      "remote"
+    ]
+  },
+  "webdriver.remote.quietExceptions": {
+    "type": "boolean",
+    "description": "Disable automatic screnshot capture on exceptions. This is False by default.",
+    "hierarchy": [
+      "RemoteWebDriver specific"
+    ],
+    "enums": [],
+    "targets": [
+      "remote"
+    ]
+  },
+  "path": {
+    "type": "string",
+    "description": "??? Path to route request to, or maybe listen on.",
+    "hierarchy": [
+      "Grid-specific"
+    ],
+    "enums": [],
+    "targets": [
+      "grid"
+    ]
+  },
+  "seleniumProtocol": {
+    "type": "string",
+    "description": "Which protocol to use. Accepted values: WebDriver, Selenium.",
+    "hierarchy": [
+      "Grid-specific"
+    ],
+    "enums": [],
+    "targets": [
+      "grid"
+    ]
+  },
+  "maxInstances": {
+    "type": "integer",
+    "description": "Maximum number of instances to allow to connect to grid,",
+    "hierarchy": [
+      "Grid-specific"
+    ],
+    "enums": [],
+    "targets": [
+      "grid"
+    ]
+  },
+  "environment": {
+    "type": "string",
+    "description": "??? Possible duplicate of browserName? See RegistrationRequest.",
+    "hierarchy": [
+      "Grid-specific"
+    ],
+    "enums": [],
+    "targets": [
+      "grid"
+    ]
+  },
+  "proxy_pac": {
+    "type": "DoNotUseProxyPac",
+    "description": "Legacy proxy mechanism. Do not use.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "commandLineFlags": {
+    "type": "string",
+    "description": "Flags to pass to browser command line.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "executablePath": {
+    "type": "string",
+    "description": "Path to browser executable.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "timeoutInSeconds": {
+    "type": "long integer",
+    "description": "Timeout to wait for the browser to launch, in seconds.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "onlyProxySeleniumTraffic": {
+    "type": "boolean",
+    "description": "Whether to only proxy selenium traffic. See browserlaunchers.Proxies",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "avoidProxy": {
+    "type": "boolean",
+    "description": "??? See browserlaunchers.Proxies",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "proxyEverything": {
+    "type": "boolean",
+    "description": "??? See browserlaunchers.Proxies",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "proxyRequired": {
+    "type": "boolean",
+    "description": "??? See browserlaunchers.Proxies",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "browserSideLog": {
+    "type": "boolean",
+    "description": "??? See AbstractBrowserLauncher.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "optionsSet": {
+    "type": "boolean",
+    "description": "??? See BrowserOptions.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "singleWindow": {
+    "type": "boolean",
+    "description": "Whether to enable single window mode.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "dontInjectRegex": {
+    "type": "javascript RegExp",
+    "description": "Regular expression that proxy injection mode can use to know when to bypss injection. Ignored if not in proxy injection mode.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "userJSInjection": {
+    "type": "boolean",
+    "description": "??? Whether to inject user JS. Ignored if not in proxy injection mode.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "userExtensions": {
+    "type": "string",
+    "description": "Path to a JavaScript file that will be loaded into selenium.",
+    "hierarchy": [
+      "Selenium RC (1.0) only"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "selenium.server.url": {
+    "type": "string",
+    "description": "URL of Selenium server to use, to back this WebDriver",
+    "hierarchy": [
+      "Selenium RC (1.0) only",
+      "Selenese-Backed-WebDriver specific"
+    ],
+    "enums": [],
+    "targets": [
+      "rc"
+    ]
+  },
+  "opera.binary": {
+    "type": "string",
+    "description": "Path to Opera binary",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.guess_binary_path": {
+    "type": "boolean",
+    "description": "Whether to guess the path to Opera if it isn't set in opera.binary",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.no_restart": {
+    "type": "boolean",
+    "description": "Whether to restart Opera",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.product": {
+    "type": "string",
+    "description": "Which Opera product we're using, e.g. \"desktop\", \"core\"",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.no_quit": {
+    "type": "boolean",
+    "description": "Whether to quit Opera when OperaDriver is shut down. If enabled, it will keep the browser running after the driver is shut down.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.autostart": {
+    "type": "boolean",
+    "description": "Whether to auto-start the Opera binary. If false, OperaDriver will wait for a connection from the browser. Go to \"opera:debug\", enter the correct port number, and hit \"Connect\" to connect manually.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.display": {
+    "type": "integer",
+    "description": "Which X display to use (*nix only)",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.idle": {
+    "type": "boolean",
+    "description": "Whether to use Opera's alternative implicit wait implementation. It will use an in-browser heuristic to guess when a page has finished loading, allowing us with great accuracy tell whether there are any planned events in the document. This functionality is useful for very simple test cases, but not designed for real-world testing. It is disabled by default.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.profile": {
+    "type": "object|string",
+    "description": "Directory to use for the Opera profile. If an OperaProfile object, that will be used when starting opera. If null a random temporary directory is used. If \"\", an empty string, then the default .autotest profile directory will be used (for backwards compatibility with Opera < 11.60).",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.launcher": {
+    "type": "string",
+    "description": "Path to the launcher binary to use. The launcher is a gateway between OperaDriver and the Opera browser, and is being used for controlling the binary and taking external screenshots. If left blank, OperaDriver will use the launcher supplied with the package.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.port": {
+    "type": "integer",
+    "description": "The port to Opera should connect to. 0 = Random, -1 = Opera default (for use with Opera < 11.60)",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.host": {
+    "type": "string",
+    "description": "The host Opera should connect to. Unless you're starting Opera manually you won't need this.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.arguments": {
+    "type": "string",
+    "description": "Arguments to pass to Opera, separated by spaces. See opera -help for available command-line switches.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.logging.file": {
+    "type": "string",
+    "description": "Where to send the output of the logging. Default is to not write to file.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "opera.logging.level": {
+    "type": "string",
+    "description": "How verbose the logging should be. Available levels are: SEVERE (highest value), WARNING, INFO, CONFIG, FINE, FINER, FINEST (lowest value), ALL. Default is INFO. TODO: These seem the wrong way around. Also what about off. Also, unify with firefox loggingPrefs.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Opera specific"
+    ],
+    "enums": [],
+    "targets": [
+      "opera"
+    ]
+  },
+  "firefox_profile": {
+    "type": "string",
+    "description": "Base64-encoded profile. TODO: Document format",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Firefox specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "firefox"
+    ]
+  },
+  "loggingPrefs": {
+    "type": "LoggingPreferences object",
+    "description": "Preferences for logging",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Firefox specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "firefox"
+    ]
+  },
+  "firefox_binary": {
+    "type": "string",
+    "description": "Path to firefox binary file to use.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Firefox specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "firefox"
+    ]
+  },
+  "mode": [
     {
-      "headline": "Introduction",
-      "level": 1
+      "type": "string",
+      "description": "Mode for browser. Possible values: chrome, proxyInjection, proxy. Defaults to chrome, if not set. proxyInjection requires -proxyInjection to be passed to server command line.",
+      "hierarchy": [
+        "Browser Specific Capabilities",
+        "Firefox specific",
+        "RC"
+      ],
+      "enums": [],
+      "targets": [
+        "firefox",
+        "rc"
+      ]
     },
-    null,
     {
-      "headline": "Used by the selenium server for browser selection",
-      "level": 3
+      "type": "string",
+      "description": "Mode for browser. Possible values: iehta, proxyInjectionMode, proxy. Defaults to iehta if not set. proxyInjection requires -proxyInjection to be passed to server command line.",
+      "hierarchy": [
+        "Browser Specific Capabilities",
+        "IE specific",
+        "RC"
+      ],
+      "enums": [],
+      "targets": [
+        "ie",
+        "rc"
+      ]
     },
     {
-      "browserName": {
-        "type": "string",
-        "description": "The name of the browser being used; should be one of {android|chrome|firefox|htmlunit|internet explorer|iPhone|iPad|opera|safari}."
-      },
-      "version": {
-        "type": "string",
-        "description": "The browser version, or the empty string if unknown."
-      },
-      "platform": {
-        "type": "string",
-        "description": "A key specifying which platform the browser should be running on. This value should be one of {WINDOWS|XP|VISTA|MAC|LINUX|UNIX|ANDROID}. When requesting a new session, the client may specify ANY to indicate any available platform may be used. For more information see [GridPlatforms]"
-      }
-    },
-    {
-      "headline": "Read-only capabilities",
-      "level": 2
-    },
-    {
-      "takesScreenshot": {
-        "type": "boolean",
-        "description": "Whether the session supports taking screenshots of the current page."
-      },
-      "handlesAlerts": {
-        "type": "boolean",
-        "description": "Whether the session can interact with modal popups, such as window.alert and window.confirm."
-      },
-      "cssSelectorsEnabled": {
-        "type": "boolean",
-        "description": "Whether the session supports CSS selectors when searching for elements."
-      }
-    },
-    {
-      "headline": "Read-write capabilities",
-      "level": 2
-    },
-    {
-      "javascriptEnabled": {
-        "type": "boolean",
-        "description": "Whether the session supports executing user supplied JavaScript in the context of the current page (only on HTMLUnitDriver)."
-      },
-      "databaseEnabled": {
-        "type": "boolean",
-        "description": "Whether the session can interact with database storage."
-      },
-      "locationContextEnabled": {
-        "type": "boolean",
-        "description": "Whether the session can set and query the browser's location context."
-      },
-      "applicationCacheEnabled": {
-        "type": "boolean",
-        "description": "Whether the session can interact with the application cache."
-      },
-      "browserConnectionEnabled": {
-        "type": "boolean",
-        "description": "Whether the session can query for the browser's connectivity and disable it if desired."
-      },
-      "webStorageEnabled": {
-        "type": "boolean",
-        "description": "Whether the session supports interactions with storage objects."
-      },
-      "acceptSslCerts": {
-        "type": "boolean",
-        "description": "Whether the session should accept all SSL certs by default."
-      },
-      "rotatable": {
-        "type": "boolean",
-        "description": "Whether the session can rotate the current page's current layout between portrait and landscape orientations (only applies to mobile platforms)."
-      },
-      "nativeEvents": {
-        "type": "boolean",
-        "description": "Whether the session is capable of generating native events when simulating user input."
-      },
-      "proxy": {
-        "type": "proxy object",
-        "description": "Details of any proxy to use. If no proxy is specified, whatever the system's current or default state is used. The format is specified under Proxy JSON Object."
-      },
-      "unexpectedAlertBehaviour": {
-        "type": "string",
-        "description": "What the browser should do with an unhandled alert before throwing out the UnhandledAlertException. Possible values are \"accept\", \"dismiss\" and \"ignore\""
-      },
-      "elementScrollBehavior": {
-        "type": "integer",
-        "description": "Allows the user to specify whether elements are scrolled into the viewport for interaction to align with the top (0) or bottom (1) of the viewport. The default value is to align with the top of the viewport. Supported in IE and Firefox (since 2.36)"
-      }
-    },
-    {
-      "headline": "RemoteWebDriver specific",
-      "level": 1
-    },
-    {
-      "webdriver.remote.sessionid": {
-        "type": "string",
-        "description": "WebDriver session ID for the session. Readonly and only returned if the server implements a server-side webdriver-backed selenium."
-      },
-      "webdriver.remote.quietExceptions": {
-        "type": "boolean",
-        "description": "Disable automatic screnshot capture on exceptions. This is False by default."
-      }
-    },
-    {
-      "headline": "Grid-specific",
-      "level": 1
-    },
-    {
-      "path": {
-        "type": "string",
-        "description": "??? Path to route request to, or maybe listen on."
-      },
-      "seleniumProtocol": {
-        "type": "string",
-        "description": "Which protocol to use. Accepted values: WebDriver, Selenium."
-      },
-      "maxInstances": {
-        "type": "integer",
-        "description": "Maximum number of instances to allow to connect to grid,"
-      },
-      "environment": {
-        "type": "string",
-        "description": "??? Possible duplicate of browserName? See RegistrationRequest."
-      }
-    },
-    {
-      "headline": "Selenium RC (1.0) only",
-      "level": 1
-    },
-    {
-      "proxy_pac": {
-        "type": "DoNotUseProxyPac",
-        "description": "Legacy proxy mechanism. Do not use."
-      },
-      "commandLineFlags": {
-        "type": "string",
-        "description": "Flags to pass to browser command line."
-      },
-      "executablePath": {
-        "type": "string",
-        "description": "Path to browser executable."
-      },
-      "timeoutInSeconds": {
-        "type": "long integer",
-        "description": "Timeout to wait for the browser to launch, in seconds."
-      },
-      "onlyProxySeleniumTraffic": {
-        "type": "boolean",
-        "description": "Whether to only proxy selenium traffic. See browserlaunchers.Proxies"
-      },
-      "avoidProxy": {
-        "type": "boolean",
-        "description": "??? See browserlaunchers.Proxies"
-      },
-      "proxyEverything": {
-        "type": "boolean",
-        "description": "??? See browserlaunchers.Proxies"
-      },
-      "proxyRequired": {
-        "type": "boolean",
-        "description": "??? See browserlaunchers.Proxies"
-      },
-      "browserSideLog": {
-        "type": "boolean",
-        "description": "??? See AbstractBrowserLauncher."
-      },
-      "optionsSet": {
-        "type": "boolean",
-        "description": "??? See BrowserOptions."
-      },
-      "singleWindow": {
-        "type": "boolean",
-        "description": "Whether to enable single window mode."
-      },
-      "dontInjectRegex": {
-        "type": "javascript RegExp",
-        "description": "Regular expression that proxy injection mode can use to know when to bypss injection. Ignored if not in proxy injection mode."
-      },
-      "userJSInjection": {
-        "type": "boolean",
-        "description": "??? Whether to inject user JS. Ignored if not in proxy injection mode."
-      },
-      "userExtensions": {
-        "type": "string",
-        "description": "Path to a JavaScript file that will be loaded into selenium."
-      }
-    },
-    {
-      "headline": "Selenese-Backed-WebDriver specific",
-      "level": 2
-    },
-    {
-      "selenium.server.url": {
-        "type": "string",
-        "description": "URL of Selenium server to use, to back this WebDriver"
-      }
-    },
-    {
-      "headline": "Browser Specific Capabilities",
-      "level": 1
-    },
-    null,
-    {
-      "headline": "Opera specific",
-      "level": 2
-    },
-    {
-      "opera.binary": {
-        "type": "string",
-        "description": "Path to Opera binary"
-      },
-      "opera.guess_binary_path": {
-        "type": "boolean",
-        "description": "Whether to guess the path to Opera if it isn't set in opera.binary"
-      },
-      "opera.no_restart": {
-        "type": "boolean",
-        "description": "Whether to restart Opera"
-      },
-      "opera.product": {
-        "type": "string",
-        "description": "Which Opera product we're using, e.g. \"desktop\", \"core\""
-      },
-      "opera.no_quit": {
-        "type": "boolean",
-        "description": "Whether to quit Opera when OperaDriver is shut down. If enabled, it will keep the browser running after the driver is shut down."
-      },
-      "opera.autostart": {
-        "type": "boolean",
-        "description": "Whether to auto-start the Opera binary. If false, OperaDriver will wait for a connection from the browser. Go to \"opera:debug\", enter the correct port number, and hit \"Connect\" to connect manually."
-      },
-      "opera.display": {
-        "type": "integer",
-        "description": "Which X display to use (*nix only)"
-      },
-      "opera.idle": {
-        "type": "boolean",
-        "description": "Whether to use Opera's alternative implicit wait implementation. It will use an in-browser heuristic to guess when a page has finished loading, allowing us with great accuracy tell whether there are any planned events in the document. This functionality is useful for very simple test cases, but not designed for real-world testing. It is disabled by default."
-      },
-      "opera.profile": {
-        "type": "object|string",
-        "description": "Directory to use for the Opera profile. If an OperaProfile object, that will be used when starting opera. If null a random temporary directory is used. If \"\", an empty string, then the default .autotest profile directory will be used (for backwards compatibility with Opera < 11.60)."
-      },
-      "opera.launcher": {
-        "type": "string",
-        "description": "Path to the launcher binary to use. The launcher is a gateway between OperaDriver and the Opera browser, and is being used for controlling the binary and taking external screenshots. If left blank, OperaDriver will use the launcher supplied with the package."
-      },
-      "opera.port": {
-        "type": "integer",
-        "description": "The port to Opera should connect to. 0 = Random, -1 = Opera default (for use with Opera < 11.60)"
-      },
-      "opera.host": {
-        "type": "string",
-        "description": "The host Opera should connect to. Unless you're starting Opera manually you won't need this."
-      },
-      "opera.arguments": {
-        "type": "string",
-        "description": "Arguments to pass to Opera, separated by spaces. See opera -help for available command-line switches."
-      },
-      "opera.logging.file": {
-        "type": "string",
-        "description": "Where to send the output of the logging. Default is to not write to file."
-      },
-      "opera.logging.level": {
-        "type": "string",
-        "description": "How verbose the logging should be. Available levels are: SEVERE (highest value), WARNING, INFO, CONFIG, FINE, FINER, FINEST (lowest value), ALL. Default is INFO. TODO: These seem the wrong way around. Also what about off. Also, unify with firefox loggingPrefs."
-      }
-    },
-    {
-      "headline": "Chrome specific",
-      "level": 2
-    },
-    null,
-    {
-      "headline": "Firefox specific",
-      "level": 2
-    },
-    null,
-    {
-      "headline": "WebDriver",
-      "level": 3
-    },
-    {
-      "firefox_profile": {
-        "type": "string",
-        "description": "Base64-encoded profile. TODO: Document format"
-      },
-      "loggingPrefs": {
-        "type": "LoggingPreferences object",
-        "description": "Preferences for logging"
-      },
-      "firefox_binary": {
-        "type": "string",
-        "description": "Path to firefox binary file to use."
-      }
-    },
-    {
-      "headline": "RC",
-      "level": 3
-    },
-    {
-      "mode": {
-        "type": "string",
-        "description": "Mode for browser. Possible values: chrome, proxyInjection, proxy. Defaults to chrome, if not set. proxyInjection requires -proxyInjection to be passed to server command line."
-      },
-      "captureNetworkTraffic": {
-        "type": "boolean",
-        "description": "Whether to capture network traffic."
-      },
-      "addCustomRequestHeaders": {
-        "type": "boolean",
-        "description": "Whether to add custom request headers."
-      },
-      "trustAllSSLCertificates": {
-        "type": "boolean",
-        "description": "Whether to trust all SSL certificates."
-      },
-      "changeMaxConnections": {
-        "type": "boolean",
-        "description": "??? See FirefoxChromeLauncher."
-      },
-      "firefoxProfileTemplate": {
-        "type": "string",
-        "description": "??? See FirefoxChromeLauncher."
-      },
-      "profile": {
-        "type": "string",
-        "description": "??? See FirefoxChromeLauncher"
-      }
-    },
-    {
-      "headline": "IE specific",
-      "level": 2
-    },
-    null,
-    {
-      "headline": "WebDriver",
-      "level": 3
-    },
-    {
-      "ignoreProtectedModeSettings": {
-        "type": "boolean",
-        "description": "Whether to skip the protected mode check. If set, tests may become flaky, unresponsive, or browsers may hang. If not set, and protected mode settings are not the same for all zones, an exception will be thrown on driver construction. Only \"best effort\" support is provided when using this capability."
-      },
-      "ignoreZoomSetting": {
-        "type": "boolean",
-        "description": "Indicates whether to skip the check that the browser's zoom level is set to 100%. Value is set to false by default."
-      },
-      "initialBrowserUrl": {
-        "type": "string",
-        "description": "Allows the user to specify the initial URL loaded when IE starts. Intended to be used with ignoreProtectedModeSettings to allow the user to initialize IE in the proper Protected Mode zone. Using this capability may cause browser instability or flaky and unresponsive code. Only \"best effort\" support is provided when using this capability."
-      },
-      "enablePersistentHover": {
-        "type": "boolean",
-        "description": "Determines whether persistent hovering is enabled (true by default). Persistent hovering is achieved by continuously firing mouse over events at the last location the mouse cursor has been moved to."
-      },
-      "enableElementCacheCleanup": {
-        "type": "boolean",
-        "description": "Determines whether the driver should attempt to remove obsolete elements from the element cache on page navigation (true by default). This is to help manage the IE driver's memory footprint, removing references to invalid elements."
-      },
-      "requireWindowFocus": {
-        "type": "boolean",
-        "description": "Determines whether to require that the IE window have focus before performing any user interaction operations (mouse or keyboard events). This capability is false by default, but delivers much more accurate native events interactions."
-      },
-      "browserAttachTimeout": {
-        "type": "integer",
-        "description": "The timeout, in milliseconds, that the driver will attempt to locate and attach to a newly opened instance of Internet Explorer. The default is zero, which indicates waiting indefinitely."
-      },
-      "ie.forceCreateProcessApi": {
-        "type": "boolean",
-        "description": "Forces launching Internet Explorer using the CreateProcess API. If this option is not specified, IE is launched using the IELaunchURL, if it is available. For IE 8 and above, this option requires the TabProcGrowth registry value to be set to 0."
-      },
-      "ie.browserCommandLineSwitches": {
-        "type": "string",
-        "description": "Specifies command-line switches with which to launch Internet Explorer. This is only valid when used with the forceCreateProcess."
-      },
-      "ie.usePerProcessProxy": {
-        "type": "boolean",
-        "description": "When a proxy is specified using the proxy capability, this capability sets the proxy settings on a per-process basis when set to true. The default is false, which means the proxy capability will set the system proxy, which IE will use."
-      },
-      "ie.ensureCleanSession": {
-        "type": "boolean",
-        "description": "When set to true, this capability clears the cache, cookies, history, and saved form data. When using this capability, be aware that this clears the cache for all running instances of Internet Explorer, including those started manually."
-      },
-      "logFile": {
-        "type": "string",
-        "description": "The path to file where server should write log messages to. By default it writes to stdout."
-      },
-      "logLevel": {
-        "type": "string",
-        "description": "The log level used by the server. Valid values are TRACE, DEBUG, INFO, WARN, ERROR, and FATAL. Defaults to FATAL if not specified."
-      },
-      "host": {
-        "type": "string",
-        "description": "The address of the host adapter on which the server will listen for commands."
-      },
-      "extractPath": {
-        "type": "string",
-        "description": "The path to the directory used to extract supporting files used by the server. Defaults to the TEMP directory if not specified."
-      },
-      "silent": {
-        "type": "boolean",
-        "description": "Suppresses diagnostic output when the server is started."
-      },
-      "ie.setProxyByServer": {
-        "type": "boolean",
-        "description": "Defines used proxy setter. False means WindowsProxyManager will be used for setting proxy settings. True means IEDriverServer will be used for setting proxy settings. Currently it's False by default. In next releases it will be set to True by default and removed."
-      }
-    },
-    {
-      "headline": "RC",
-      "level": 3
-    },
-    {
-      "mode": {
-        "type": "string",
-        "description": "Mode for browser. Possible values: iehta, proxyInjectionMode, proxy. Defaults to iehta if not set. proxyInjection requires -proxyInjection to be passed to server command line."
-      },
-      "killProcessesByName": {
-        "type": "boolean",
-        "description": "Whether to try to kill processes by name, instead (or addition) to killing processes we happen to have handles to."
-      },
-      "honorSystemProxy": {
-        "type": "boolean",
-        "description": "Whether to honor the system proxy."
-      },
-      "ensureCleanSession": {
-        "type": "boolean",
-        "description": "Whether to make sure the session has no cookies or temporary internet files on Windows. I believe this is passed to the IEDriver as well, but ignored by it."
-      }
-    },
-    {
-      "headline": "Safari specific",
-      "level": 2
-    },
-    null,
-    {
-      "headline": "WebDriver",
-      "level": 3
-    },
-    {
-      "safari.options": {
-        "type": "object",
-        "description": "A map of configuration options, as enumerated below."
-      }
-    },
-    {
-      "label": "Available options:"
-    },
-    {
-      "cleanSession": {
-        "type": "boolean",
-        "description": "Whether to make sure the session has no cookies, cache entries, local storage, or databases."
-      }
-    },
-    {
-      "headline": "RC",
-      "level": 3
-    },
-    {
-      "mode": {
-        "type": "string",
-        "description": "Mode for browser. Possible values: filebased, proxyInjectionMode, proxy. Defaults to filebased. Note: filebased does not work on newer Safaris. proxyInjection requires -proxyInjection to be passed to server command line."
-      },
-      "honorSystemProxy": {
-        "type": "boolean",
-        "description": "Whether to honour the sysem proxy."
-      },
-      "ensureCleanSession": {
-        "type": "boolean",
-        "description": "Whether to make sure the session has no cookies, cache entries. And that any registry and proxy settings are restored after the session."
-      }
-    },
-    {
-      "headline": "Object structures",
-      "level": 1
-    },
-    null,
-    {
-      "headline": "Proxy JSON Object",
-      "level": 2
-    },
-    {
-      "proxyType": {
-        "type": "string",
-        "description": "(Required) The type of proxy being used. Possible values are: direct - A direct connection - no proxy in use, manual - Manual proxy settings configured, e.g. setting a proxy for HTTP, a proxy for FTP, etc, pac - Proxy autoconfiguration from a URL, autodetect - Proxy autodetection, probably with WPAD, system - Use system settings"
-      },
-      "proxyAutoconfigUrl": {
-        "type": "string",
-        "description": "(Required if proxyType == pac, Ignored otherwise) Specifies the URL to be used for proxy autoconfiguration. Expected format example: http://hostname.com:1234/pacfile"
-      },
-      "ftpProxy, httpProxy, sslProxy, socksProxy": {
-        "type": "string",
-        "description": "(Optional, Ignored if proxyType != manual) Specifies the proxies to be used for FTP, HTTP, HTTPS and SOCKS requests respectively. Behaviour is undefined if a request is made, where the proxy for the particular protocol is undefined, if proxyType is manual. Expected format example: hostname.com:1234"
-      },
-      "socksUsername": {
-        "type": "string",
-        "description": "(Optional, Ignored if proxyType != manual and socksProxy is not set) Specifies SOCKS proxy username."
-      },
-      "socksPassword": {
-        "type": "string",
-        "description": "(Optional, Ignored if proxyType != manual and socksProxy is not set) Specifies SOCKS proxy password."
-      },
-      "noProxy": {
-        "type": "string",
-        "description": "(Optional, Ignored if proxyType != manual) Specifies proxy bypass addresses. Format is driver specific."
-      }
-    },
-    {
-      "headline": "LoggingPreferences JSON object",
-      "level": 2
-    },
-    {
-      "component": {
-        "type": "string",
-        "description": "How verbose the logging should be."
-      }
-    },
-    {
-      "headline": "FirefoxProfile settings",
-      "level": 2
-    },
-    {
-      "webdriver_accept_untrusted_certs": {
-        "type": "boolean",
-        "description": "Whether to trust all SSL certificates. TODO: Maybe in some way different to the acceptSslCerts or trustAllSSLCertificates capabilities."
-      },
-      "webdriver_assume_untrusted_issuer": {
-        "type": "boolean",
-        "description": "Whether to trust all SSL certificate issuers. TODO: Maybe in some way different to the acceptSslCerts or trustAllSSLCertificates capabilities."
-      },
-      "webdriver.log.driver": {
-        "type": "string",
-        "description": "Level at which to log FirefoxDriver logging statements to a temporary file, so that they can be retrieved by a getLogs command. Available options; DEBUG, INFO, WARNING, ERROR, OFF. Defaults to OFF."
-      },
-      "webdriver.log.file": {
-        "type": "string",
-        "description": "Path to file to which to copy firefoxdriver logging output. Defaults to no file (like /dev/null)."
-      },
-      "webdriver.load.strategy": {
-        "type": "string",
-        "description": "Experimental API. Defines different strategies for how long to wait until a page is loaded. Values: unstable, conservative. Defaults to conservative."
-      },
-      "webdriver_firefox_port": {
-        "type": "integer",
-        "description": "Port to listen on for WebDriver commands. Defaults to 7055."
-      }
+      "type": "string",
+      "description": "Mode for browser. Possible values: filebased, proxyInjectionMode, proxy. Defaults to filebased. Note: filebased does not work on newer Safaris. proxyInjection requires -proxyInjection to be passed to server command line.",
+      "hierarchy": [
+        "Browser Specific Capabilities",
+        "Safari specific",
+        "RC"
+      ],
+      "enums": [],
+      "targets": [
+        "rc",
+        "safari"
+      ]
     }
-  ]
+  ],
+  "captureNetworkTraffic": {
+    "type": "boolean",
+    "description": "Whether to capture network traffic.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Firefox specific",
+      "RC"
+    ],
+    "enums": [],
+    "targets": [
+      "firefox",
+      "rc"
+    ]
+  },
+  "addCustomRequestHeaders": {
+    "type": "boolean",
+    "description": "Whether to add custom request headers.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Firefox specific",
+      "RC"
+    ],
+    "enums": [],
+    "targets": [
+      "firefox",
+      "rc"
+    ]
+  },
+  "trustAllSSLCertificates": {
+    "type": "boolean",
+    "description": "Whether to trust all SSL certificates.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Firefox specific",
+      "RC"
+    ],
+    "enums": [],
+    "targets": [
+      "firefox",
+      "rc"
+    ]
+  },
+  "changeMaxConnections": {
+    "type": "boolean",
+    "description": "??? See FirefoxChromeLauncher.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Firefox specific",
+      "RC"
+    ],
+    "enums": [],
+    "targets": [
+      "firefox",
+      "rc"
+    ]
+  },
+  "firefoxProfileTemplate": {
+    "type": "string",
+    "description": "??? See FirefoxChromeLauncher.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Firefox specific",
+      "RC"
+    ],
+    "enums": [],
+    "targets": [
+      "firefox",
+      "rc"
+    ]
+  },
+  "profile": {
+    "type": "string",
+    "description": "??? See FirefoxChromeLauncher",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Firefox specific",
+      "RC"
+    ],
+    "enums": [],
+    "targets": [
+      "firefox",
+      "rc"
+    ]
+  },
+  "ignoreProtectedModeSettings": {
+    "type": "boolean",
+    "description": "Whether to skip the protected mode check. If set, tests may become flaky, unresponsive, or browsers may hang. If not set, and protected mode settings are not the same for all zones, an exception will be thrown on driver construction. Only \"best effort\" support is provided when using this capability.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "ignoreZoomSetting": {
+    "type": "boolean",
+    "description": "Indicates whether to skip the check that the browser's zoom level is set to 100%. Value is set to false by default.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "initialBrowserUrl": {
+    "type": "string",
+    "description": "Allows the user to specify the initial URL loaded when IE starts. Intended to be used with ignoreProtectedModeSettings to allow the user to initialize IE in the proper Protected Mode zone. Using this capability may cause browser instability or flaky and unresponsive code. Only \"best effort\" support is provided when using this capability.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "enablePersistentHover": {
+    "type": "boolean",
+    "description": "Determines whether persistent hovering is enabled (true by default). Persistent hovering is achieved by continuously firing mouse over events at the last location the mouse cursor has been moved to.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "enableElementCacheCleanup": {
+    "type": "boolean",
+    "description": "Determines whether the driver should attempt to remove obsolete elements from the element cache on page navigation (true by default). This is to help manage the IE driver's memory footprint, removing references to invalid elements.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "requireWindowFocus": {
+    "type": "boolean",
+    "description": "Determines whether to require that the IE window have focus before performing any user interaction operations (mouse or keyboard events). This capability is false by default, but delivers much more accurate native events interactions.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "browserAttachTimeout": {
+    "type": "integer",
+    "description": "The timeout, in milliseconds, that the driver will attempt to locate and attach to a newly opened instance of Internet Explorer. The default is zero, which indicates waiting indefinitely.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "ie.forceCreateProcessApi": {
+    "type": "boolean",
+    "description": "Forces launching Internet Explorer using the CreateProcess API. If this option is not specified, IE is launched using the IELaunchURL, if it is available. For IE 8 and above, this option requires the TabProcGrowth registry value to be set to 0.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "ie.browserCommandLineSwitches": {
+    "type": "string",
+    "description": "Specifies command-line switches with which to launch Internet Explorer. This is only valid when used with the forceCreateProcess.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "ie.usePerProcessProxy": {
+    "type": "boolean",
+    "description": "When a proxy is specified using the proxy capability, this capability sets the proxy settings on a per-process basis when set to true. The default is false, which means the proxy capability will set the system proxy, which IE will use.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "ie.ensureCleanSession": {
+    "type": "boolean",
+    "description": "When set to true, this capability clears the cache, cookies, history, and saved form data. When using this capability, be aware that this clears the cache for all running instances of Internet Explorer, including those started manually.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "logFile": {
+    "type": "string",
+    "description": "The path to file where server should write log messages to. By default it writes to stdout.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "logLevel": {
+    "type": "string",
+    "description": "The log level used by the server. Valid values are TRACE, DEBUG, INFO, WARN, ERROR, and FATAL. Defaults to FATAL if not specified.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "host": {
+    "type": "string",
+    "description": "The address of the host adapter on which the server will listen for commands.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "extractPath": {
+    "type": "string",
+    "description": "The path to the directory used to extract supporting files used by the server. Defaults to the TEMP directory if not specified.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "silent": {
+    "type": "boolean",
+    "description": "Suppresses diagnostic output when the server is started.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "ie.setProxyByServer": {
+    "type": "boolean",
+    "description": "Defines used proxy setter. False means WindowsProxyManager will be used for setting proxy settings. True means IEDriverServer will be used for setting proxy settings. Currently it's False by default. In next releases it will be set to True by default and removed.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "ie"
+    ]
+  },
+  "killProcessesByName": {
+    "type": "boolean",
+    "description": "Whether to try to kill processes by name, instead (or addition) to killing processes we happen to have handles to.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "IE specific",
+      "RC"
+    ],
+    "enums": [],
+    "targets": [
+      "ie",
+      "rc"
+    ]
+  },
+  "honorSystemProxy": [
+    {
+      "type": "boolean",
+      "description": "Whether to honor the system proxy.",
+      "hierarchy": [
+        "Browser Specific Capabilities",
+        "IE specific",
+        "RC"
+      ],
+      "enums": [],
+      "targets": [
+        "ie",
+        "rc"
+      ]
+    },
+    {
+      "type": "boolean",
+      "description": "Whether to honour the sysem proxy.",
+      "hierarchy": [
+        "Browser Specific Capabilities",
+        "Safari specific",
+        "RC"
+      ],
+      "enums": [],
+      "targets": [
+        "rc",
+        "safari"
+      ]
+    }
+  ],
+  "ensureCleanSession": [
+    {
+      "type": "boolean",
+      "description": "Whether to make sure the session has no cookies or temporary internet files on Windows. I believe this is passed to the IEDriver as well, but ignored by it.",
+      "hierarchy": [
+        "Browser Specific Capabilities",
+        "IE specific",
+        "RC"
+      ],
+      "enums": [],
+      "targets": [
+        "ie",
+        "rc"
+      ]
+    },
+    {
+      "type": "boolean",
+      "description": "Whether to make sure the session has no cookies, cache entries. And that any registry and proxy settings are restored after the session.",
+      "hierarchy": [
+        "Browser Specific Capabilities",
+        "Safari specific",
+        "RC"
+      ],
+      "enums": [],
+      "targets": [
+        "rc",
+        "safari"
+      ]
+    }
+  ],
+  "safari.options": {
+    "type": "object",
+    "description": "A map of configuration options, as enumerated below.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Safari specific",
+      "WebDriver"
+    ],
+    "enums": [],
+    "targets": [
+      "safari"
+    ]
+  },
+  "cleanSession": {
+    "type": "boolean",
+    "description": "Whether to make sure the session has no cookies, cache entries, local storage, or databases.",
+    "hierarchy": [
+      "Browser Specific Capabilities",
+      "Safari specific",
+      "WebDriver",
+      null,
+      null,
+      "Available options:"
+    ],
+    "enums": [],
+    "targets": [
+      "safari"
+    ]
+  },
+  "proxyType": {
+    "type": "string",
+    "description": "(Required) The type of proxy being used. Possible values are: direct - A direct connection - no proxy in use, manual - Manual proxy settings configured, e.g. setting a proxy for HTTP, a proxy for FTP, etc, pac - Proxy autoconfiguration from a URL, autodetect - Proxy autodetection, probably with WPAD, system - Use system settings",
+    "hierarchy": [
+      "Object structures",
+      "Proxy JSON Object"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "proxyAutoconfigUrl": {
+    "type": "string",
+    "description": "(Required if proxyType == pac, Ignored otherwise) Specifies the URL to be used for proxy autoconfiguration. Expected format example: http://hostname.com:1234/pacfile",
+    "hierarchy": [
+      "Object structures",
+      "Proxy JSON Object"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "ftpProxy, httpProxy, sslProxy, socksProxy": {
+    "type": "string",
+    "description": "(Optional, Ignored if proxyType != manual) Specifies the proxies to be used for FTP, HTTP, HTTPS and SOCKS requests respectively. Behaviour is undefined if a request is made, where the proxy for the particular protocol is undefined, if proxyType is manual. Expected format example: hostname.com:1234",
+    "hierarchy": [
+      "Object structures",
+      "Proxy JSON Object"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "socksUsername": {
+    "type": "string",
+    "description": "(Optional, Ignored if proxyType != manual and socksProxy is not set) Specifies SOCKS proxy username.",
+    "hierarchy": [
+      "Object structures",
+      "Proxy JSON Object"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "socksPassword": {
+    "type": "string",
+    "description": "(Optional, Ignored if proxyType != manual and socksProxy is not set) Specifies SOCKS proxy password.",
+    "hierarchy": [
+      "Object structures",
+      "Proxy JSON Object"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "noProxy": {
+    "type": "string",
+    "description": "(Optional, Ignored if proxyType != manual) Specifies proxy bypass addresses. Format is driver specific.",
+    "hierarchy": [
+      "Object structures",
+      "Proxy JSON Object"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "component": {
+    "type": "string",
+    "description": "How verbose the logging should be.",
+    "hierarchy": [
+      "Object structures",
+      "LoggingPreferences JSON object"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "webdriver_accept_untrusted_certs": {
+    "type": "boolean",
+    "description": "Whether to trust all SSL certificates. TODO: Maybe in some way different to the acceptSslCerts or trustAllSSLCertificates capabilities.",
+    "hierarchy": [
+      "Object structures",
+      "FirefoxProfile settings"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "webdriver_assume_untrusted_issuer": {
+    "type": "boolean",
+    "description": "Whether to trust all SSL certificate issuers. TODO: Maybe in some way different to the acceptSslCerts or trustAllSSLCertificates capabilities.",
+    "hierarchy": [
+      "Object structures",
+      "FirefoxProfile settings"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "webdriver.log.driver": {
+    "type": "string",
+    "description": "Level at which to log FirefoxDriver logging statements to a temporary file, so that they can be retrieved by a getLogs command. Available options; DEBUG, INFO, WARNING, ERROR, OFF. Defaults to OFF.",
+    "hierarchy": [
+      "Object structures",
+      "FirefoxProfile settings"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "webdriver.log.file": {
+    "type": "string",
+    "description": "Path to file to which to copy firefoxdriver logging output. Defaults to no file (like /dev/null).",
+    "hierarchy": [
+      "Object structures",
+      "FirefoxProfile settings"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "webdriver.load.strategy": {
+    "type": "string",
+    "description": "Experimental API. Defines different strategies for how long to wait until a page is loaded. Values: unstable, conservative. Defaults to conservative.",
+    "hierarchy": [
+      "Object structures",
+      "FirefoxProfile settings"
+    ],
+    "enums": [],
+    "targets": []
+  },
+  "webdriver_firefox_port": {
+    "type": "integer",
+    "description": "Port to listen on for WebDriver commands. Defaults to 7055.",
+    "hierarchy": [
+      "Object structures",
+      "FirefoxProfile settings"
+    ],
+    "enums": [],
+    "targets": []
+  }
 }

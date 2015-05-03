@@ -8,6 +8,7 @@ This repository contains the *raw* documentation data extracted from modules all
   * decomposed (but unstructured) [JsonWireProtocol DesiredCapabilities](https://code.google.com/p/selenium/wiki/DesiredCapabilities) in [data/jsonwire/0.0.0/desired-capabilities.js](data/jsonwire/0.0.0/desired-capabilities.js)
   * [OperaDriver DesiredCapabilities](https://code.google.com/p/selenium/wiki/OperaDriver) in [data/jsonwire/0.0.0/capabilities.opera.js](data/jsonwire/0.0.0/capabilities.opera.js)
   * [ChromeDriver DesiredCapabilities](https://sites.google.com/a/chromium.org/chromedriver/capabilities)
+  * [GhostDriver Capabilities](https://github.com/detro/ghostdriver#what-extra-webdriver-capabilities-ghostdriver-offers)
 * decomposed [W3C WebDriver](https://github.com/w3c/webdriver) in [data/webdriver/0.0.0](data/webdriver/0.0.0)
 * simplified [WD.js](https://github.com/admc/wd/blob/master/doc/jsonwire-full-mapping.md) in [data/wd/0.3.11/methods.json](data/wd/0.3.11/methods.json)
 
@@ -20,3 +21,5 @@ DesiredCapabilities relevant Selenium sources
 
 * [org/openqa/selenium/remote/DesiredCapabilities.java](https://github.com/SeleniumHQ/selenium/blob/6b4e6de722fcccd18619951543143999e9a30657/java/client/src/org/openqa/selenium/remote/DesiredCapabilities.java)
 * [org/openqa/selenium/remote/CapabilityType.java](https://github.com/SeleniumHQ/selenium/blob/6b4e6de722fcccd18619951543143999e9a30657/java/client/src/org/openqa/selenium/remote/CapabilityType.java)
+
+Still need to work out how to import [LoggingPreferences JSON object](https://code.google.com/p/selenium/wiki/DesiredCapabilities#JSON_object)

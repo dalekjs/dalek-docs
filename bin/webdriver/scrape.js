@@ -74,7 +74,7 @@ function scrape() {
 
     .execute(browserScrapeCapabilities, [])
     .then(function(data) {
-      fs.writeFile(path.join(dataPath, 'capabilties.json'), data);
+      fs.writeFile(path.join(dataPath, 'capabilities.json'), data);
     }, error)
 
     // stop WD and the driver

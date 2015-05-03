@@ -76,21 +76,21 @@ function scrape() {
 
     .execute(browserScrapeCapabilities, [])
     .then(function(data) {
-      fs.writeFile(path.join(dataPath, 'capabilties.json'), data);
+      fs.writeFile(path.join(dataPath, 'capabilities.json'), data);
     }, error)
 
     .get('https://code.google.com/p/selenium/wiki/DesiredCapabilities')
 
     .execute(browserScrapeDesiredCapabilities, [])
     .then(function(data) {
-      fs.writeFile(path.join(dataPath, 'desired-capabilties.json'), data);
+      fs.writeFile(path.join(dataPath, 'desired-capabilities.json'), data);
     }, error)
 
     .get('https://code.google.com/p/selenium/wiki/OperaDriver')
 
     .execute(browserScrapeCapabilitiesOpera, [])
     .then(function(data) {
-      fs.writeFile(path.join(dataPath, 'capabilties.opera.json'), data);
+      fs.writeFile(path.join(dataPath, 'capabilities.opera.json'), data);
     }, error)
 
     // stop WD and the driver

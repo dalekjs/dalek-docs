@@ -83,7 +83,10 @@ function scrape() {
 
     .execute(browserScrapeDesiredCapabilities, [])
     .then(function(data) {
-      fs.writeFile(path.join(dataPath, 'desired-capabilities.json'), data);
+      fs.writeFile(path.join(dataPath, 'desired-capabilities.raw.json'), data);
+    }, error)
+    .then(function(data) {
+      require('./parse.desired-capabilities.js');
     }, error)
 
     .get('https://code.google.com/p/selenium/wiki/OperaDriver')

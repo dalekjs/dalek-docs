@@ -1,3 +1,11 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+# DalekJS is not maintained any longer :cry:
+
+We recommend [TestCafé](http://devexpress.github.io/testcafe/) for your automated browser testing needs.
+
+---
+
 # Dalek Documentation Source Aggregation
 
 This repository contains the *raw* documentation data extracted from modules all over the place. This repository is responsible for hosting the tools to acquire and mutate the data, as well as the collected data itself. In a later stage this repository might also contain the tools to generate docs (HTML, man-pages, …)
